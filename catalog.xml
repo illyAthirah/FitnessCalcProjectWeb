@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/BasicCalc/MyServer?wsdl" uri="src/conf/xml-resources/web-service-references/MyServer_1/wsdl/localhost_8080/BasicCalc/MyServer.wsdl"/>
+    <system systemId="http://localhost:8080/BasicCalc/MyServer?xsd=1" uri="src/conf/xml-resources/web-service-references/MyServer_1/wsdl/localhost_8080/BasicCalc/MyServer.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/FitnessCalc/MyServer?wsdl" uri="src/conf/xml-resources/web-service-references/MyServer_3/wsdl/localhost_8080/FitnessCalc/MyServer.wsdl"/>
+    <system systemId="http://localhost:8080/FitnessCalc/MyServer?xsd=1" uri="src/conf/xml-resources/web-service-references/MyServer_3/wsdl/localhost_8080/FitnessCalc/MyServer.xsd_1.xsd"/>
+</catalog>
