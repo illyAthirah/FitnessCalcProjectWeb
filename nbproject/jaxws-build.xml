@@ -19,11 +19,11 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsgen-MyServer" depends="wsgen-init">
+    <target name="wsgen-FitnessCalcWS" depends="wsgen-init">
         <copy todir="${build.classes.dir}/META-INF">
-            <fileset dir="${webinf.dir}" includes="wsit-com.fitnesscalc.MyServer.xml"/>
+            <fileset dir="${webinf.dir}" includes="wsit-com.fitnessCalc.FitnessCalcWS.xml"/>
         </copy>
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="com.fitnesscalc.MyServer" xendorsed="true">
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="com.fitnessCalc.FitnessCalcWS" xendorsed="true">
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
@@ -43,69 +43,21 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-MyServer" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/MyServer"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MyServer" destdir="${build.generated.dir}/jax-wsCache/MyServer" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MyServer/wsdl/localhost_8080/BasicCalc/MyServer.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/BasicCalc/MyServer?wsdl" xnocompile="true" xendorsed="true" package="com.cal">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MyServer/wsdl/localhost_8080/BasicCalc/MyServer.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/MyServer"/>
+    <target name="wsimport-client-FitnessCalcWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/FitnessCalcWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/FitnessCalcWS" destdir="${build.generated.dir}/jax-wsCache/FitnessCalcWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/FitnessCalcWS/wsdl/localhost_8080/FitnessCalc/FitnessCalcWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/FitnessCalc/FitnessCalcWS?WSDL" xnocompile="true" xendorsed="true" package="com.fitnessClient">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/FitnessCalcWS/wsdl/localhost_8080/FitnessCalc/FitnessCalcWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/FitnessCalcWS"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/MyServer">
+            <fileset dir="${build.generated.dir}/jax-wsCache/FitnessCalcWS">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-MyServer" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/cal"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/MyServer"/>
+    <target name="wsimport-client-clean-FitnessCalcWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/fitnessClient"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/FitnessCalcWS"/>
     </target>
-    <target name="wsimport-client-MyServer_1" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/MyServer_1"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MyServer_1" destdir="${build.generated.dir}/jax-wsCache/MyServer_1" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MyServer_1/wsdl/localhost_8080/BasicCalc/MyServer.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/BasicCalc/MyServer?wsdl" xnocompile="true" xendorsed="true" package="com.cal">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MyServer_1/wsdl/localhost_8080/BasicCalc/MyServer.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/MyServer_1"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/MyServer_1">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-MyServer_1" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/cal"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/MyServer_1"/>
-    </target>
-    <target name="wsimport-client-MyServer_2" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/MyServer_2"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MyServer_2" destdir="${build.generated.dir}/jax-wsCache/MyServer_2" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MyServer_2/wsdl/localhost_8080/FitnessCalc/MyServer.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/FitnessCalc/MyServer?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MyServer_2/wsdl/localhost_8080/FitnessCalc/MyServer.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/MyServer_2"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/MyServer_2">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-MyServer_2" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/fitnesscalc"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/MyServer_2"/>
-    </target>
-    <target name="wsimport-client-MyServer_3" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/MyServer_3"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MyServer_3" destdir="${build.generated.dir}/jax-wsCache/MyServer_3" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/MyServer_3/wsdl/localhost_8080/FitnessCalc/MyServer.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/FitnessCalc/MyServer?wsdl" xnocompile="true" xendorsed="true" package="com.fitnessclient">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/MyServer_3/wsdl/localhost_8080/FitnessCalc/MyServer.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/MyServer_3"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/MyServer_3">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-MyServer_3" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/fitnessclient"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/MyServer_3"/>
-    </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-MyServer, wsimport-client-MyServer_1, wsimport-client-MyServer_2, wsimport-client-MyServer_3"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-FitnessCalcWS"/>
 </project>
