@@ -24,6 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _DetermineAge_QNAME = new QName("http://fitnessCalc.com/", "determineAge");
+    private final static QName _DetermineAgeResponse_QNAME = new QName("http://fitnessCalc.com/", "determineAgeResponse");
     private final static QName _Hello_QNAME = new QName("http://fitnessCalc.com/", "hello");
     private final static QName _HelloResponse_QNAME = new QName("http://fitnessCalc.com/", "helloResponse");
 
@@ -32,6 +34,22 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link DetermineAge }
+     * 
+     */
+    public DetermineAge createDetermineAge() {
+        return new DetermineAge();
+    }
+
+    /**
+     * Create an instance of {@link DetermineAgeResponse }
+     * 
+     */
+    public DetermineAgeResponse createDetermineAgeResponse() {
+        return new DetermineAgeResponse();
     }
 
     /**
@@ -48,6 +66,32 @@ public class ObjectFactory {
      */
     public HelloResponse createHelloResponse() {
         return new HelloResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DetermineAge }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DetermineAge }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "determineAge")
+    public JAXBElement<DetermineAge> createDetermineAge(DetermineAge value) {
+        return new JAXBElement<DetermineAge>(_DetermineAge_QNAME, DetermineAge.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DetermineAgeResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DetermineAgeResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "determineAgeResponse")
+    public JAXBElement<DetermineAgeResponse> createDetermineAgeResponse(DetermineAgeResponse value) {
+        return new JAXBElement<DetermineAgeResponse>(_DetermineAgeResponse_QNAME, DetermineAgeResponse.class, null, value);
     }
 
     /**

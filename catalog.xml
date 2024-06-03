@@ -2,4 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/FitnessCalc/FitnessCalcWS?WSDL" uri="src/conf/xml-resources/web-service-references/FitnessCalcWS/wsdl/localhost_8080/FitnessCalc/FitnessCalcWS.wsdl"/>
     <system systemId="http://localhost:8080/FitnessCalc/FitnessCalcWS?xsd=1" uri="src/conf/xml-resources/web-service-references/FitnessCalcWS/wsdl/localhost_8080/FitnessCalc/FitnessCalcWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/FitnessCalcProjectWeb/FitnessCalcWS?WSDL" uri="src/conf/xml-resources/web-service-references/FitnessCalcWS/wsdl/localhost_8080/FitnessCalcProjectWeb/FitnessCalcWS.wsdl"/>
+    <system systemId="http://localhost:8080/FitnessCalcProjectWeb/FitnessCalcWS?xsd=1" uri="src/conf/xml-resources/web-service-references/FitnessCalcWS/wsdl/localhost_8080/FitnessCalcProjectWeb/FitnessCalcWS.xsd_1.xsd"/>
 </catalog>

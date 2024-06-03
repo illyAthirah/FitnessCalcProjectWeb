@@ -18,8 +18,9 @@ import javax.xml.ws.WebServiceRef;
  */
 public class FitnessServlet extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/FitnessCalc/FitnessCalcWS.wsdl")
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/FitnessCalcProjectWeb/FitnessCalcWS.wsdl")
     private FitnessCalcWS_Service service;
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,7 +35,8 @@ public class FitnessServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String name=request.getParameter("name");
+            if (request.getParameter("ic")!=null){
+            String ic = request.getParameter("ic");
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -42,9 +44,22 @@ public class FitnessServlet extends HttpServlet {
             out.println("<title>Servlet FitnessServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet FitnessServlet at " + hello(name) + "</h1>");
+            out.println("<h1>Servlet FitnessServlet at " + determineAge(ic) + "</h1>");
+            out.println("</body>");
+            out.println("</html>");}
+            else
+            {
+            String name = request.getParameter("name");
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Client</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Client at " + hello(name) + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            }
         }
     }
 
@@ -94,4 +109,10 @@ public class FitnessServlet extends HttpServlet {
         return port.hello(name);
     }
 
+    private String determineAge(String ic) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
+        return port.determineAge(ic);
+    }
 }
