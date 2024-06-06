@@ -26,6 +26,8 @@ public class ObjectFactory {
 
     private final static QName _DetermineAge_QNAME = new QName("http://fitnessCalc.com/", "determineAge");
     private final static QName _DetermineAgeResponse_QNAME = new QName("http://fitnessCalc.com/", "determineAgeResponse");
+    private final static QName _DisplayInformation_QNAME = new QName("http://fitnessCalc.com/", "displayInformation");
+    private final static QName _DisplayInformationResponse_QNAME = new QName("http://fitnessCalc.com/", "displayInformationResponse");
     private final static QName _Hello_QNAME = new QName("http://fitnessCalc.com/", "hello");
     private final static QName _HelloResponse_QNAME = new QName("http://fitnessCalc.com/", "helloResponse");
 
@@ -50,6 +52,22 @@ public class ObjectFactory {
      */
     public DetermineAgeResponse createDetermineAgeResponse() {
         return new DetermineAgeResponse();
+    }
+
+    /**
+     * Create an instance of {@link DisplayInformation }
+     * 
+     */
+    public DisplayInformation createDisplayInformation() {
+        return new DisplayInformation();
+    }
+
+    /**
+     * Create an instance of {@link DisplayInformationResponse }
+     * 
+     */
+    public DisplayInformationResponse createDisplayInformationResponse() {
+        return new DisplayInformationResponse();
     }
 
     /**
@@ -92,6 +110,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "determineAgeResponse")
     public JAXBElement<DetermineAgeResponse> createDetermineAgeResponse(DetermineAgeResponse value) {
         return new JAXBElement<DetermineAgeResponse>(_DetermineAgeResponse_QNAME, DetermineAgeResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DisplayInformation }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DisplayInformation }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "displayInformation")
+    public JAXBElement<DisplayInformation> createDisplayInformation(DisplayInformation value) {
+        return new JAXBElement<DisplayInformation>(_DisplayInformation_QNAME, DisplayInformation.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DisplayInformationResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link DisplayInformationResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "displayInformationResponse")
+    public JAXBElement<DisplayInformationResponse> createDisplayInformationResponse(DisplayInformationResponse value) {
+        return new JAXBElement<DisplayInformationResponse>(_DisplayInformationResponse_QNAME, DisplayInformationResponse.class, null, value);
     }
 
     /**

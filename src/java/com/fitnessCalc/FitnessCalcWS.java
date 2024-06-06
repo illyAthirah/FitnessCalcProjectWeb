@@ -33,4 +33,13 @@ public class FitnessCalcWS {
             return String.valueOf(Period.between(birthDate, LocalDate.now()).getYears());
         
     }
+    
+    @WebMethod(operationName = "displayInformation")
+    public String displayInformation(String fullName, String icNum, String gender, double weight, double height) {
+    return "Full Name: " + fullName + "\n" +
+               "IC Number: " + icNum + "\n" +
+               "Gender: " + gender + "\n" +
+               "Weight: " + weight + " kg\n" +
+               "Height: " + height + " cm";
+    }
 }

@@ -26,6 +26,21 @@ public interface FitnessCalcWS {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "determineAge", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineAge")
+    @ResponseWrapper(localName = "determineAgeResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineAgeResponse")
+    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/determineAgeRequest", output = "http://fitnessCalc.com/FitnessCalcWS/determineAgeResponse")
+    public String determineAge(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
      * @param name
      * @return
      *     returns java.lang.String
@@ -41,17 +56,29 @@ public interface FitnessCalcWS {
 
     /**
      * 
+     * @param arg3
+     * @param arg2
+     * @param arg4
+     * @param arg1
      * @param arg0
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "determineAge", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineAge")
-    @ResponseWrapper(localName = "determineAgeResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineAgeResponse")
-    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/determineAgeRequest", output = "http://fitnessCalc.com/FitnessCalcWS/determineAgeResponse")
-    public String determineAge(
+    @RequestWrapper(localName = "displayInformation", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DisplayInformation")
+    @ResponseWrapper(localName = "displayInformationResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DisplayInformationResponse")
+    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/displayInformationRequest", output = "http://fitnessCalc.com/FitnessCalcWS/displayInformationResponse")
+    public String displayInformation(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        double arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        double arg4);
 
 }

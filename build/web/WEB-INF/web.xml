@@ -4,9 +4,17 @@
         <servlet-name>FitnessServlet</servlet-name>
         <servlet-class>com.fitnessClient.FitnessServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DisplayInfo</servlet-name>
+        <servlet-class>com.fitnessClient.DisplayInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FitnessServlet</servlet-name>
         <url-pattern>/FitnessServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DisplayInfo</servlet-name>
+        <url-pattern>/DisplayInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
