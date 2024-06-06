@@ -26,36 +26,6 @@ public interface FitnessCalcWS {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "determineAge", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineAge")
-    @ResponseWrapper(localName = "determineAgeResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineAgeResponse")
-    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/determineAgeRequest", output = "http://fitnessCalc.com/FitnessCalcWS/determineAgeResponse")
-    public String determineAge(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param name
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hello", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.Hello")
-    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.HelloResponse")
-    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/helloRequest", output = "http://fitnessCalc.com/FitnessCalcWS/helloResponse")
-    public String hello(
-        @WebParam(name = "name", targetNamespace = "")
-        String name);
-
-    /**
-     * 
      * @param arg3
      * @param arg2
      * @param arg4
@@ -80,5 +50,53 @@ public interface FitnessCalcWS {
         double arg3,
         @WebParam(name = "arg4", targetNamespace = "")
         double arg4);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "determineAge", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineAge")
+    @ResponseWrapper(localName = "determineAgeResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineAgeResponse")
+    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/determineAgeRequest", output = "http://fitnessCalc.com/FitnessCalcWS/determineAgeResponse")
+    public String determineAge(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "determineBMI", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineBMI")
+    @ResponseWrapper(localName = "determineBMIResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.DetermineBMIResponse")
+    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/determineBMIRequest", output = "http://fitnessCalc.com/FitnessCalcWS/determineBMIResponse")
+    public String determineBMI(
+        @WebParam(name = "arg0", targetNamespace = "")
+        double arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        double arg1);
+
+    /**
+     * 
+     * @param name
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "hello", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.Hello")
+    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.HelloResponse")
+    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/helloRequest", output = "http://fitnessCalc.com/FitnessCalcWS/helloResponse")
+    public String hello(
+        @WebParam(name = "name", targetNamespace = "")
+        String name);
 
 }

@@ -8,6 +8,10 @@
         <servlet-name>DisplayInfo</servlet-name>
         <servlet-class>com.fitnessClient.DisplayInfo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CalcBMI</servlet-name>
+        <servlet-class>com.fitnessClient.CalcBMI</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FitnessServlet</servlet-name>
         <url-pattern>/FitnessServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>DisplayInfo</servlet-name>
         <url-pattern>/DisplayInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CalcBMI</servlet-name>
+        <url-pattern>/CalcBMI</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
