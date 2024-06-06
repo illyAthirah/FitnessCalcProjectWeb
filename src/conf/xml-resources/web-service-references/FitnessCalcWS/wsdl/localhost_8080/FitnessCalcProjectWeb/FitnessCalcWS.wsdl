@@ -10,6 +10,12 @@
 <message name="determineAgeResponse">
 <part name="parameters" element="tns:determineAgeResponse"/>
 </message>
+<message name="bodyFat">
+<part name="parameters" element="tns:bodyFat"/>
+</message>
+<message name="bodyFatResponse">
+<part name="parameters" element="tns:bodyFatResponse"/>
+</message>
 <message name="determineBMI">
 <part name="parameters" element="tns:determineBMI"/>
 </message>
@@ -27,6 +33,10 @@
 <input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineAgeRequest" message="tns:determineAge"/>
 <output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineAgeResponse" message="tns:determineAgeResponse"/>
 </operation>
+<operation name="bodyFat">
+<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/bodyFatRequest" message="tns:bodyFat"/>
+<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/bodyFatResponse" message="tns:bodyFatResponse"/>
+</operation>
 <operation name="determineBMI">
 <input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineBMIRequest" message="tns:determineBMI"/>
 <output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineBMIResponse" message="tns:determineBMIResponse"/>
@@ -39,6 +49,15 @@
 <binding name="FitnessCalcWSPortBinding" type="tns:FitnessCalcWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 <operation name="determineAge">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="bodyFat">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

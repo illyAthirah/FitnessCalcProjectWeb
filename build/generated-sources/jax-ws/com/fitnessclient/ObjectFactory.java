@@ -24,6 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _BodyFat_QNAME = new QName("http://fitnessCalc.com/", "bodyFat");
+    private final static QName _BodyFatResponse_QNAME = new QName("http://fitnessCalc.com/", "bodyFatResponse");
     private final static QName _DetermineAge_QNAME = new QName("http://fitnessCalc.com/", "determineAge");
     private final static QName _DetermineAgeResponse_QNAME = new QName("http://fitnessCalc.com/", "determineAgeResponse");
     private final static QName _DetermineBMI_QNAME = new QName("http://fitnessCalc.com/", "determineBMI");
@@ -36,6 +38,22 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link BodyFat }
+     * 
+     */
+    public BodyFat createBodyFat() {
+        return new BodyFat();
+    }
+
+    /**
+     * Create an instance of {@link BodyFatResponse }
+     * 
+     */
+    public BodyFatResponse createBodyFatResponse() {
+        return new BodyFatResponse();
     }
 
     /**
@@ -84,6 +102,32 @@ public class ObjectFactory {
      */
     public DisplayInformationResponse createDisplayInformationResponse() {
         return new DisplayInformationResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BodyFat }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BodyFat }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "bodyFat")
+    public JAXBElement<BodyFat> createBodyFat(BodyFat value) {
+        return new JAXBElement<BodyFat>(_BodyFat_QNAME, BodyFat.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BodyFatResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link BodyFatResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "bodyFatResponse")
+    public JAXBElement<BodyFatResponse> createBodyFatResponse(BodyFatResponse value) {
+        return new JAXBElement<BodyFatResponse>(_BodyFatResponse_QNAME, BodyFatResponse.class, null, value);
     }
 
     /**

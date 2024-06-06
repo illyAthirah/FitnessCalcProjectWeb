@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.0 (wsit240-7e98ff4; 2017-08-03T21:19:54+0200) JAXWS-RI/2.3.0 JAXWS-API/2.3.0 JAXB-RI/2.3.0 JAXB-API/2.3.0 svn-revision#unknown. --><xs:schema xmlns:tns="http://fitnessCalc.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://fitnessCalc.com/">
 
+<xs:element name="bodyFat" type="tns:bodyFat"/>
+
+<xs:element name="bodyFatResponse" type="tns:bodyFatResponse"/>
+
 <xs:element name="determineAge" type="tns:determineAge"/>
 
 <xs:element name="determineAgeResponse" type="tns:determineAgeResponse"/>
@@ -11,10 +15,6 @@
 <xs:element name="displayInformation" type="tns:displayInformation"/>
 
 <xs:element name="displayInformationResponse" type="tns:displayInformationResponse"/>
-
-<xs:element name="hello" type="tns:hello"/>
-
-<xs:element name="helloResponse" type="tns:helloResponse"/>
 
 <xs:complexType name="determineAge">
 <xs:sequence>
@@ -44,6 +44,20 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="bodyFat">
+<xs:sequence>
+<xs:element name="arg0" type="xs:double"/>
+<xs:element name="arg1" type="xs:int"/>
+<xs:element name="arg2" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bodyFatResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="determineBMI">
 <xs:sequence>
 <xs:element name="arg0" type="xs:double"/>
@@ -52,18 +66,6 @@
 </xs:complexType>
 
 <xs:complexType name="determineBMIResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="hello">
-<xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="helloResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

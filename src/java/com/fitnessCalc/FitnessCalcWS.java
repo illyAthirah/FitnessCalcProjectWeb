@@ -47,5 +47,14 @@ public class FitnessCalcWS {
         double bmi = (weight / (height * height)) * 10000;
         return String.format("%.2f", bmi);
     }
+    
+     public String bodyFat(double bmi, int age, String gender) {
+      double bodyFatPercentage;
+      if (gender.equals("Male"))
+          bodyFatPercentage = (1.20 * bmi) + (0.23 * age) - 16.2;
+      else
+          bodyFatPercentage = (1.20 * bmi) + (0.23 * age) - 5.4;
+      return String.format("%.2f", bodyFatPercentage);
+  }
 
 }

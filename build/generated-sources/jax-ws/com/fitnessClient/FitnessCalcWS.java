@@ -41,6 +41,27 @@ public interface FitnessCalcWS {
 
     /**
      * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "bodyFat", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.BodyFat")
+    @ResponseWrapper(localName = "bodyFatResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.BodyFatResponse")
+    @Action(input = "http://fitnessCalc.com/FitnessCalcWS/bodyFatRequest", output = "http://fitnessCalc.com/FitnessCalcWS/bodyFatResponse")
+    public String bodyFat(
+        @WebParam(name = "arg0", targetNamespace = "")
+        double arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
+
+    /**
+     * 
      * @param arg1
      * @param arg0
      * @return
