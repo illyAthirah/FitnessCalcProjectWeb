@@ -4,12 +4,6 @@
 <xsd:import namespace="http://fitnessCalc.com/" schemaLocation="http://localhost:8080/FitnessCalcProjectWeb/FitnessCalcWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="displayInformation">
-<part name="parameters" element="tns:displayInformation"/>
-</message>
-<message name="displayInformationResponse">
-<part name="parameters" element="tns:displayInformationResponse"/>
-</message>
 <message name="determineAge">
 <part name="parameters" element="tns:determineAge"/>
 </message>
@@ -22,17 +16,13 @@
 <message name="determineBMIResponse">
 <part name="parameters" element="tns:determineBMIResponse"/>
 </message>
-<message name="hello">
-<part name="parameters" element="tns:hello"/>
+<message name="displayInformation">
+<part name="parameters" element="tns:displayInformation"/>
 </message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse"/>
+<message name="displayInformationResponse">
+<part name="parameters" element="tns:displayInformationResponse"/>
 </message>
 <portType name="FitnessCalcWS">
-<operation name="displayInformation">
-<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/displayInformationRequest" message="tns:displayInformation"/>
-<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/displayInformationResponse" message="tns:displayInformationResponse"/>
-</operation>
 <operation name="determineAge">
 <input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineAgeRequest" message="tns:determineAge"/>
 <output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineAgeResponse" message="tns:determineAgeResponse"/>
@@ -41,22 +31,13 @@
 <input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineBMIRequest" message="tns:determineBMI"/>
 <output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineBMIResponse" message="tns:determineBMIResponse"/>
 </operation>
-<operation name="hello">
-<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/helloRequest" message="tns:hello"/>
-<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/helloResponse" message="tns:helloResponse"/>
+<operation name="displayInformation">
+<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/displayInformationRequest" message="tns:displayInformation"/>
+<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/displayInformationResponse" message="tns:displayInformationResponse"/>
 </operation>
 </portType>
 <binding name="FitnessCalcWSPortBinding" type="tns:FitnessCalcWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="displayInformation">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="determineAge">
 <soap:operation soapAction=""/>
 <input>
@@ -75,7 +56,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="hello">
+<operation name="displayInformation">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

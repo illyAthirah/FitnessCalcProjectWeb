@@ -33,13 +33,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 max-width: 400px;
                 width: 100%;
+                display: none; /* Initially hide all forms */
             }
             label {
                 display: block;
                 margin-bottom: 10px;
                 font-weight: bold;
             }
-            input[type="text"] {
+            input[type="text"], select {
                 width: calc(100% - 22px);
                 padding: 10px;
                 margin: 10px 0;
@@ -61,38 +62,67 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             input[type="submit"]:hover {
                 background-color: #45a049;
             }
+            #formSelector {
+        padding: 10px;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
         </style>
+        <script>
+            function showForm() {
+                var selector = document.getElementById("formSelector");
+                var forms = document.querySelectorAll("form");
+                forms.forEach(function(form) {
+                    form.style.display = "none";
+                });
+                if (selector.value) {
+                    document.getElementById(selector.value).style.display = "block";
+                }
+            }
+        </script>
     </head>
     <body>
         <div><h1>Welcome to Personal Health & Fitness Calculator</h1></div>
-        
-        <form action="FitnessServlet">
-            <label for="name">Enter your name:</label>
-            <input type="text" id="name" name="name" value="" />
-            <input type="submit" value="Submit" />
-        </form>
-        
-        <form action="FitnessServlet">
+
+        <div>
+            <label for="formSelector">Choose a form:</label>
+            <select id="formSelector" onchange="showForm()">
+                <option value="">Select a form</option>
+                <option value="icForm">Enter IC</option>
+                <option value="infoForm">Display Info</option>
+                <option value="bmiForm">Calculate BMI</option>
+            </select>
+        </div>
+
+        <form id="icForm" action="FitnessServlet">
             <label for="name">Enter your IC:</label>
             <input type="text" id="ic" name="ic" value="" />
             <input type="submit" value="Submit" />
         </form>
-        
-        <form action="DisplayInfo">
+
+        <form id="infoForm" action="DisplayInfo">
             <label for="fullName">Enter your Full Name:</label>
             <input type="text" id="fullName" name="fullName" value="" />
             <label for="icNum">Enter your IC:</label>
             <input type="text" id="icNum" name="icNum" value="" />
             <label for="gender">Enter your gender:</label>
-            <input type="text" id="gender" name="gender" value="" />
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
             <label for="height">Enter your height:</label>
             <input type="text" id="height" name="height" value="" />
             <label for="weight">Enter your weight:</label>
             <input type="text" id="weight" name="weight" value="" />
             <input type="submit" value="Submit" />
         </form>
-        
-        <form action="CalcBMI">
+
+        <form id="bmiForm" action="CalcBMI">
             <label for="height">Enter your height:</label>
             <input type="text" id="height" name="height" value="" />
             <label for="weight">Enter your weight:</label>

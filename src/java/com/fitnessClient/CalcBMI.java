@@ -38,14 +38,27 @@ public class CalcBMI extends HttpServlet {
             double weight = Double.parseDouble(request.getParameter("weight"));
             double height = Double.parseDouble(request.getParameter("height"));
             out.println("<!DOCTYPE html>");
-            out.println("<html>");
+            out.println("<html lang=\"en\">");
             out.println("<head>");
-            out.println("<title>Servlet CalcBMI</title>");            
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+            out.println("<title>Servlet CalcBMI</title>");
+            out.println("<style>");
+            out.println("body { font-family: Arial, sans-serif; background-color: #f0f8ff; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
+            out.println(".container { text-align: center; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
+            out.println("h1 { color: #0073e6; }");
+            out.println("p { font-size: 1.1em; }");
+            out.println("a { color: #0073e6; text-decoration: none; }");
+            out.println("a:hover { text-decoration: underline; }");
+            out.println("</style>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CalcBMI at " + determineBMI(weight, height) + "</h1>");
+            out.println("<div class=\"container\">");
+            out.println("<img src=\"https://lirp.cdn-website.com/69c0b277/dms3rep/multi/opt/BMI+levels-640w.jpg\" alt=\"Description of Image\" style=\"max-width: 80%; height: auto;\">");
+            out.println("<h1>Your BMI is " + determineBMI(weight, height) + "</h1>");
+            out.println("<p>For more information about the BMI formula, visit the <a href=\"https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.html\" target=\"_blank\">CDC website</a>.</p>");
+            out.println("</div>");
             out.println("</body>");
-            /*https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.html */
             out.println("</html>");
         }
     }

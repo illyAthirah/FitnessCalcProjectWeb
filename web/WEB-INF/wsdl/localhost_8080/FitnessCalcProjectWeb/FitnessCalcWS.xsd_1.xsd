@@ -4,6 +4,10 @@
 
 <xs:element name="determineAgeResponse" type="tns:determineAgeResponse"/>
 
+<xs:element name="determineBMI" type="tns:determineBMI"/>
+
+<xs:element name="determineBMIResponse" type="tns:determineBMIResponse"/>
+
 <xs:element name="displayInformation" type="tns:displayInformation"/>
 
 <xs:element name="displayInformationResponse" type="tns:displayInformationResponse"/>
@@ -35,6 +39,19 @@
 </xs:complexType>
 
 <xs:complexType name="displayInformationResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="determineBMI">
+<xs:sequence>
+<xs:element name="arg0" type="xs:double"/>
+<xs:element name="arg1" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="determineBMIResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

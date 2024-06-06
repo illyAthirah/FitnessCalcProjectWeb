@@ -35,31 +35,28 @@ public class FitnessServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if (request.getParameter("ic")!=null){
             String ic = request.getParameter("ic");
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
+            out.println("<html lang=\"en\">");
             out.println("<head>");
-            out.println("<title>Servlet FitnessServlet</title>");            
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+            out.println("<title>Servlet DisplayIC</title>");
+            out.println("<style>");
+            out.println("body { font-family: Arial, sans-serif; background-color: #f0f8ff; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
+            out.println(".container { text-align: center; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
+            out.println("h1 { color: #0073e6; }");
+            out.println("p { font-size: 1.1em; }");
+            out.println("a { color: #0073e6; text-decoration: none; }");
+            out.println("a:hover { text-decoration: underline; }");
+            out.println("</style>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet FitnessServlet at " + determineAge(ic) + "</h1>");
-            out.println("</body>");
-            out.println("</html>");}
-            else
-            {
-            String name = request.getParameter("name");
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Client</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Client at " + hello(name) + "</h1>");
+            out.println("<div class=\"container\">");
+            out.println("<h1>Your age is " + determineAge(ic) + "</h1>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
-            }
         }
     }
 
@@ -101,13 +98,6 @@ public class FitnessServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private String hello(java.lang.String name) {
-        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
-        // If the calling of port operations may lead to race condition some synchronization is required.
-        com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
-        return port.hello(name);
-    }
 
     private String determineAge(String ic) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.

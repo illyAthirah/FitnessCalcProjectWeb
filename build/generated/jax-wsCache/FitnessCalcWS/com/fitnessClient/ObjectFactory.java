@@ -30,8 +30,6 @@ public class ObjectFactory {
     private final static QName _DetermineBMIResponse_QNAME = new QName("http://fitnessCalc.com/", "determineBMIResponse");
     private final static QName _DisplayInformation_QNAME = new QName("http://fitnessCalc.com/", "displayInformation");
     private final static QName _DisplayInformationResponse_QNAME = new QName("http://fitnessCalc.com/", "displayInformationResponse");
-    private final static QName _Hello_QNAME = new QName("http://fitnessCalc.com/", "hello");
-    private final static QName _HelloResponse_QNAME = new QName("http://fitnessCalc.com/", "helloResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.fitnessClient
@@ -86,22 +84,6 @@ public class ObjectFactory {
      */
     public DisplayInformationResponse createDisplayInformationResponse() {
         return new DisplayInformationResponse();
-    }
-
-    /**
-     * Create an instance of {@link Hello }
-     * 
-     */
-    public Hello createHello() {
-        return new Hello();
-    }
-
-    /**
-     * Create an instance of {@link HelloResponse }
-     * 
-     */
-    public HelloResponse createHelloResponse() {
-        return new HelloResponse();
     }
 
     /**
@@ -180,32 +162,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "displayInformationResponse")
     public JAXBElement<DisplayInformationResponse> createDisplayInformationResponse(DisplayInformationResponse value) {
         return new JAXBElement<DisplayInformationResponse>(_DisplayInformationResponse_QNAME, DisplayInformationResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Hello }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link Hello }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "hello")
-    public JAXBElement<Hello> createHello(Hello value) {
-        return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://fitnessCalc.com/", name = "helloResponse")
-    public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
-        return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
     }
 
 }

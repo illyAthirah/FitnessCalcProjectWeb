@@ -37,19 +37,29 @@ public class DisplayInfo extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String fullName = request.getParameter("fullName");
             String icNum = request.getParameter("icNum");
-                    String gender = request.getParameter("gender");
-                    double weight = Double.parseDouble(request.getParameter("weight"));
-                    double height = Double.parseDouble(request.getParameter("height"));
-
-                    out.println("<!DOCTYPE html>");
-                    out.println("<html>");
-                    out.println("<head>");
-                    out.println("<title>Servlet Fitness Servlet</title>");            
-                    out.println("</head>");
-                    out.println("<body>");
-                    out.println("<h1> " + displayInformation(fullName, icNum, gender, weight, height) + " </h1>");  // Use <pre> to preserve line breaks
-                    out.println("</body>");
-                    out.println("</html>");
+            String gender = request.getParameter("gender");
+            double weight = Double.parseDouble(request.getParameter("weight"));
+            double height = Double.parseDouble(request.getParameter("height"));
+            out.println("<html lang=\"en\">");
+            out.println("<head>");
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+            out.println("<title>Servlet DisplayInfo</title>");
+            out.println("<style>");
+            out.println("body { font-family: Arial, sans-serif; background-color: #f0f8ff; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
+            out.println(".container { text-align: center; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
+            out.println("h1 { color: #0073e6; }");
+            out.println("p { font-size: 1.1em; }");
+            out.println("a { color: #0073e6; text-decoration: none; }");
+            out.println("a:hover { text-decoration: underline; }");
+            out.println("</style>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<div class=\"container\">");
+            out.println("<h1>Your Info is " + displayInformation(fullName, icNum, gender, weight, height) + "</h1>");
+            out.println("</div>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
