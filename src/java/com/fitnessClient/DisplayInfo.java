@@ -53,13 +53,108 @@ public class DisplayInfo extends HttpServlet {
             out.println("a { color: #0073e6; text-decoration: none; }");
             out.println("a:hover { text-decoration: underline; }");
             out.println("</style>");
+            out.println("<!-- Bootstrap CSS -->");
+            out.println("<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" rel=\"stylesheet\">");
             out.println("</head>");
             out.println("<body>");
             out.println("<div class=\"container\">");
-            out.println("<h1>Your Info is " + displayInformation(fullName, icNum, gender, weight, height) + "</h1>");
+            out.println("<h1>Welcome! " + displayInformation(fullName, icNum, gender, weight, height) + "</h1>");
+            out.println("<h1>Your are currently " + determineAge(icNum) + "</h1>");
+
+            // Buttons to trigger modals
+            out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"submitBMIForm()\">Calculate BMI</button>");
+            out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"submitBodyFatForm()\">Calculate Body Fat</button>");
+            out.println("<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#calorieModal\">Open Calorie Form</button>");
+            out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"submitDailyNeedForm()\">Calculate Daily Calorie Need</button>");
+
+
+            // Hidden form for BMI calculation
+            out.println("<form id=\"bmiForm\" action=\"CalcBMI\" method=\"post\" style=\"display:none;\">");
+            out.println("<input type=\"hidden\" name=\"height\" value=\"" + height + "\" />");
+            out.println("<input type=\"hidden\" name=\"weight\" value=\"" + weight + "\" />");
+            out.println("</form>");
+
+
+            // Hidden form for Body Fat calculation
+            out.println("<form id=\"bodyFatForm\" action=\"DetermineBodyFat\" method=\"post\" style=\"display:none;\">");
+            out.println("<input type=\"hidden\" name=\"bmi\" value=\"" + determineBMI(weight, height) + "\" />");
+            out.println("<input type=\"hidden\" name=\"age\" value=\"" + determineAge(icNum) + "\" />");
+            out.println("<input type=\"hidden\" name=\"gender\" value=\"" + gender + "\" />");
+            out.println("</form>");
+
+            // Calorie Form Modal
+            out.println("<div class=\"modal fade\" id=\"calorieModal\" tabindex=\"-1\" aria-labelledby=\"calorieModalLabel\" aria-hidden=\"true\">");
+            out.println("<div class=\"modal-dialog\">");
+            out.println("<div class=\"modal-content\">");
+            out.println("<div class=\"modal-header\">");
+            out.println("<h5 class=\"modal-title\" id=\"calorieModalLabel\">Calorie Form</h5>");
+            out.println("<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">");
+            out.println("<span aria-hidden=\"true\">&times;</span>");
+            out.println("</button>");
             out.println("</div>");
+            out.println("<div class=\"modal-body\">");
+            out.println("<form id=\"calorieForm\" action=\"DetermineBurnRate\">");
+            out.println("<div class=\"form-group\">");
+            out.println("<label for=\"duration\">Enter the duration:</label>");
+            out.println("<input type=\"text\" class=\"form-control\" id=\"duration\" name=\"duration\" value=\"\" />");
+            out.println("</div>");
+            out.println("<div class=\"form-group\">");
+            out.println("<label for=\"met\">Enter your activity:</label>");
+            out.println("<select class=\"form-control\" id=\"met\" name=\"met\">");
+            out.println("<option value=\"0.9\">Sleeping</option>");
+            out.println("<option value=\"1.0\">Watching television</option>");
+            out.println("<option value=\"1.8\">Writing, desk work, typing</option>");
+            out.println("<option value=\"2.3\">Walking, 1.7 mph (2.7 km/h), level ground, strolling, very slow</option>");
+            out.println("<option value=\"2.9\">Walking, 2.5 mph (4 km/h)</option>");
+            out.println("<option value=\"3.0\">Bicycling, stationary, 50 W, very light effort</option>");
+            out.println("<option value=\"3.3\">Walking, 3.0 mph (4.8 km/h)</option>");
+            out.println("<option value=\"3.5\">Calisthenics, home exercise, light or moderate effort, general</option>");
+            out.println("<option value=\"3.6\">Walking, 3.4 mph (5.5 km/h)</option>");
+            out.println("<option value=\"4.0\">Bicycling, less than 10 mph (16 km/h), leisure, to work or for pleasure</option>");
+            out.println("<option value=\"5.5\">Bicycling, stationary, 100 W, light effort</option>");
+            out.println("<option value=\"7.0\">Jogging, general</option>");
+            out.println("<option value=\"8.0\">Calisthenics (e.g., push-ups, sit-ups, pull-ups, jumping jacks), heavy, vigorous effort</option>");
+            out.println("<option value=\"8.0\">Running jogging, in place</option>");
+            out.println("<option value=\"10.0\">Rope jumping</option>");
+            out.println("</select>");
+            out.println("</div>");
+            out.println("<div class=\"form-group\">");
+            out.println("<input type=\"hidden\" class=\"form-control\" id=\"weight\" name=\"weight\" value=\"" + weight + "\" />");
+            out.println("</div>");
+            out.println("<button type=\"submit\" class=\"btn btn-primary\">Submit</button>");
+            out.println("</form>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+            out.println("</div>");
+
+            // Button to trigger the Daily Calorie Need calculation
+            // Hidden form for Daily Calorie Need calculation
+            out.println("<form id=\"dailyNeedForm\" action=\"DetermineCalorieNeed\" method=\"post\" style=\"display:none;\">");
+            out.println("<input type=\"hidden\" name=\"age\" value=\"" + determineAge(icNum) + "\" />");
+            out.println("<input type=\"hidden\" name=\"height\" value=\"" + height + "\" />");
+            out.println("<input type=\"hidden\" name=\"weight\" value=\"" + weight + "\" />");
+            out.println("<input type=\"hidden\" name=\"gender\" value=\"" + gender + "\" />");
+            out.println("</form>");
+
+            // JavaScript to submit the hidden form
+            out.println("<script>");
+            out.println("function submitBMIForm() {");
+            out.println("    document.getElementById('bmiForm').submit();");
+            out.println("}");
+            out.println("function submitBodyFatForm() { document.getElementById('bodyFatForm').submit(); }");
+            out.println("function submitDailyNeedForm() { document.getElementById('dailyNeedForm').submit(); }");
+
+            out.println("</script>");
+
+            out.println("</div>");
+            out.println("<!-- Bootstrap JS and dependencies -->");
+            out.println("<script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\"></script>");
+            out.println("<script src=\"https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js\"></script>");
+            out.println("<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>");
             out.println("</body>");
             out.println("</html>");
+
         }
     }
 
@@ -107,6 +202,20 @@ public class DisplayInfo extends HttpServlet {
         // If the calling of port operations may lead to race condition some synchronization is required.
         com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
         return port.displayInformation(arg0, arg1, arg2, arg3, arg4);
+    }
+    
+    private String determineAge(String ic) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
+        return port.determineAge(ic);
+    }
+    
+    private String determineBMI(double arg0, double arg1) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
+        return port.determineBMI(arg0, arg1);
     }
 
 }

@@ -35,10 +35,10 @@ public class FitnessCalcWS {
     
     @WebMethod(operationName = "displayInformation")
     public String displayInformation(String fullName, String icNum, String gender, double weight, double height) {
-    return "Full Name: " + fullName + "\n" +
-               "IC Number: " + icNum + "\n" +
-               "Gender: " + gender + "\n" +
-               "Weight: " + weight + " kg\n" +
+    return "<br />Full Name: " + fullName + "<br />" +
+               "IC Number: " + icNum + "<br />" +
+               "Gender: " + gender + "<br />" +
+               "Weight: " + weight + " kg<br />" +
                "Height: " + height + " cm";
     }
     

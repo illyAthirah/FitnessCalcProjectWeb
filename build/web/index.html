@@ -33,7 +33,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                 max-width: 400px;
                 width: 100%;
-                display: none; /* Initially hide all forms */
+                display: all;
             }
             label {
                 display: block;
@@ -72,40 +72,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         box-sizing: border-box;
     }
         </style>
-        <script>
-            function showForm() {
-                var selector = document.getElementById("formSelector");
-                var forms = document.querySelectorAll("form");
-                forms.forEach(function(form) {
-                    form.style.display = "none";
-                });
-                if (selector.value) {
-                    document.getElementById(selector.value).style.display = "block";
-                }
-            }
-        </script>
     </head>
     <body>
         <div><h1>Welcome to Personal Health & Fitness Calculator</h1></div>
-
-        <div>
-            <label for="formSelector">Choose a form:</label>
-            <select id="formSelector" onchange="showForm()">
-                <option value="">Select a form</option>
-                <option value="icForm">Enter IC</option>
-                <option value="infoForm">Display Info</option>
-                <option value="bmiForm">Calculate BMI</option>
-                <option value="bodyFatForm">Calculate body fat</option>
-                <option value="calorieForm">Calculate calory burn rate</option>
-                <option value="dailyNeedForm">Calculate daily calorie needs</option>
-            </select>
-        </div>
-
-        <form id="icForm" action="FitnessServlet">
-            <label for="name">Enter your IC:</label>
-            <input type="text" id="ic" name="ic" value="" />
-            <input type="submit" value="Submit" />
-        </form>
 
         <form id="infoForm" action="DisplayInfo">
             <label for="fullName">Enter your Full Name:</label>
@@ -114,75 +83,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <input type="text" id="icNum" name="icNum" value="" />
             <label for="gender">Enter your gender:</label>
             <select id="gender" name="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select>
-            <label for="height">Enter your height:</label>
-            <input type="text" id="height" name="height" value="" />
-            <label for="weight">Enter your weight:</label>
-            <input type="text" id="weight" name="weight" value="" />
-            <input type="submit" value="Submit" />
-        </form>
-
-        <form id="bmiForm" action="CalcBMI">
-            <label for="height">Enter your height:</label>
-            <input type="text" id="height" name="height" value="" />
-            <label for="weight">Enter your weight:</label>
-            <input type="text" id="weight" name="weight" value="" />
-            <input type="submit" value="Submit" />
-        </form>
-        
-        <form id="bodyFatForm" action="DetermineBodyFat">
-            <label for="bmi">Enter your BMI:</label>
-            <input type="text" id="bmi" name="bmi" value="" />
-            <label for="age">Enter your age:</label>
-            <input type="text" id="age" name="age" value="" />
-            <label for="gender">Enter your gender:</label>
-            <select id="gender" name="gender">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
-            <input type="submit" value="Submit" />
-        </form>
-        
-        <form id="calorieForm" action="DetermineBurnRate">
-            <label for="duration">Enter your duration:</label>
-            <input type="text" id="duration" name="duration" value="" />
-            <label for="met">Enter your activity</label>
-            <select id="met" name="met">
-                <option value="0.9">Sleeping</option>
-                <option value="1.0">Watching television</option>
-                <option value="1.8">Writing, desk work, typing</option>
-                <option value="2.3">Walking, 1.7 mph (2.7 km/h), level ground, strolling, very slow</option>
-                <option value="2.9">Walking, 2.5 mph (4 km/h)</option>
-                <option value="3.0">Bicycling, stationary, 50 W, very light effort</option>
-                <option value="3.3">Walking, 3.0 mph (4.8 km/h)</option>
-                <option value="3.5">Calisthenics, home exercise, light or moderate effort, general</option>
-                <option value="3.6">Walking, 3.4 mph (5.5 km/h)</option>
-                <option value="4.0">Bicycling, less than 10 mph (16 km/h), leisure, to work or for pleasure</option>
-                <option value="5.5">Bicycling, stationary, 100 W, light effort</option>
-                <option value="7.0">Jogging, general</option>
-                <option value="8.0">Calisthenics (e.g., push-ups, sit-ups, pull-ups, jumping jacks), heavy, vigorous effort</option>
-                <option value="8.0">Running jogging, in place</option>
-                <option value="10.0">Rope jumping</option>
-            </select>
-            <label for="weight">Enter your weight</label>
-            <input type="text" id="weight" name="weight" value="" />
-            <input type="submit" value="Submit" />
-        </form>
-        
-        <form id="dailyNeedForm" action="DetermineCalorieNeed">
-            <label for="age">Enter your age:</label>
-            <input type="text" id="age" name="age" value="" />
             <label for="height">Enter your height:</label>
             <input type="text" id="height" name="height" value="" />
             <label for="weight">Enter your weight:</label>
             <input type="text" id="weight" name="weight" value="" />
-            <label for="gender">Enter your gender:</label>
-            <select id="gender" name="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
             <input type="submit" value="Submit" />
         </form>
     </body>
