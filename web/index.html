@@ -97,6 +97,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <option value="bmiForm">Calculate BMI</option>
                 <option value="bodyFatForm">Calculate body fat</option>
                 <option value="calorieForm">Calculate calory burn rate</option>
+                <option value="dailyNeedForm">Calculate daily calorie needs</option>
             </select>
         </div>
 
@@ -167,6 +168,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </select>
             <label for="weight">Enter your weight</label>
             <input type="text" id="weight" name="weight" value="" />
+            <input type="submit" value="Submit" />
+        </form>
+        
+        <form id="dailyNeedForm" action="DetermineCalorieNeed">
+            <label for="age">Enter your age:</label>
+            <input type="text" id="age" name="age" value="" />
+            <label for="height">Enter your height:</label>
+            <input type="text" id="height" name="height" value="" />
+            <label for="weight">Enter your weight:</label>
+            <input type="text" id="weight" name="weight" value="" />
+            <label for="gender">Enter your gender:</label>
+            <select id="gender" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
             <input type="submit" value="Submit" />
         </form>
     </body>

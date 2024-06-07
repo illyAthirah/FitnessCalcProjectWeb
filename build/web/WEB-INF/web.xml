@@ -20,6 +20,10 @@
         <servlet-name>DetermineBurnRate</servlet-name>
         <servlet-class>com.fitnessClient.DetermineBurnRate</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetermineCalorieNeed</servlet-name>
+        <servlet-class>com.fitnessClient.DetermineCalorieNeed</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FitnessServlet</servlet-name>
         <url-pattern>/FitnessServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>DetermineBurnRate</servlet-name>
         <url-pattern>/DetermineBurnRate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetermineCalorieNeed</servlet-name>
+        <url-pattern>/DetermineCalorieNeed</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -10,6 +10,24 @@
 <message name="displayInformationResponse">
 <part name="parameters" element="tns:displayInformationResponse"/>
 </message>
+<message name="determineAge">
+<part name="parameters" element="tns:determineAge"/>
+</message>
+<message name="determineAgeResponse">
+<part name="parameters" element="tns:determineAgeResponse"/>
+</message>
+<message name="determineBMI">
+<part name="parameters" element="tns:determineBMI"/>
+</message>
+<message name="determineBMIResponse">
+<part name="parameters" element="tns:determineBMIResponse"/>
+</message>
+<message name="dailyCalorieNeed">
+<part name="parameters" element="tns:dailyCalorieNeed"/>
+</message>
+<message name="dailyCalorieNeedResponse">
+<part name="parameters" element="tns:dailyCalorieNeedResponse"/>
+</message>
 <message name="bodyFat">
 <part name="parameters" element="tns:bodyFat"/>
 </message>
@@ -22,22 +40,22 @@
 <message name="calorieBurnRateResponse">
 <part name="parameters" element="tns:calorieBurnRateResponse"/>
 </message>
-<message name="determineBMI">
-<part name="parameters" element="tns:determineBMI"/>
-</message>
-<message name="determineBMIResponse">
-<part name="parameters" element="tns:determineBMIResponse"/>
-</message>
-<message name="determineAge">
-<part name="parameters" element="tns:determineAge"/>
-</message>
-<message name="determineAgeResponse">
-<part name="parameters" element="tns:determineAgeResponse"/>
-</message>
 <portType name="FitnessCalcWS">
 <operation name="displayInformation">
 <input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/displayInformationRequest" message="tns:displayInformation"/>
 <output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/displayInformationResponse" message="tns:displayInformationResponse"/>
+</operation>
+<operation name="determineAge">
+<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineAgeRequest" message="tns:determineAge"/>
+<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineAgeResponse" message="tns:determineAgeResponse"/>
+</operation>
+<operation name="determineBMI">
+<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineBMIRequest" message="tns:determineBMI"/>
+<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineBMIResponse" message="tns:determineBMIResponse"/>
+</operation>
+<operation name="dailyCalorieNeed">
+<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/dailyCalorieNeedRequest" message="tns:dailyCalorieNeed"/>
+<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/dailyCalorieNeedResponse" message="tns:dailyCalorieNeedResponse"/>
 </operation>
 <operation name="bodyFat">
 <input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/bodyFatRequest" message="tns:bodyFat"/>
@@ -46,14 +64,6 @@
 <operation name="calorieBurnRate">
 <input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/calorieBurnRateRequest" message="tns:calorieBurnRate"/>
 <output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/calorieBurnRateResponse" message="tns:calorieBurnRateResponse"/>
-</operation>
-<operation name="determineBMI">
-<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineBMIRequest" message="tns:determineBMI"/>
-<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineBMIResponse" message="tns:determineBMIResponse"/>
-</operation>
-<operation name="determineAge">
-<input wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineAgeRequest" message="tns:determineAge"/>
-<output wsam:Action="http://fitnessCalc.com/FitnessCalcWS/determineAgeResponse" message="tns:determineAgeResponse"/>
 </operation>
 </portType>
 <binding name="FitnessCalcWSPortBinding" type="tns:FitnessCalcWS">
@@ -67,16 +77,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="bodyFat">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="calorieBurnRate">
+<operation name="determineAge">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -94,7 +95,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="determineAge">
+<operation name="dailyCalorieNeed">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="bodyFat">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="calorieBurnRate">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
