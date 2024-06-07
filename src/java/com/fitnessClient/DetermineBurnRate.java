@@ -54,8 +54,15 @@ public class DetermineBurnRate extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<div class=\"container\">");
-            out.println("<h1>Your calorie burn rate is " + calorieBurnRate(duration, met, weight) + "</h1>");
+            out.println("tambah maksud");
+            out.println("<h1>Your calorie burn rate is " + calorieBurnRate(duration, met, weight) + "%</h1>");
+            out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");
+            out.println("<script>");
+            out.println("function goBack() {");
+            out.println("window.history.back();");
+            out.println("}");
+            out.println("</script>");
             out.println("</body>");
             out.println("</html>");
         }

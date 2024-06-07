@@ -55,9 +55,16 @@ public class DetermineBodyFat extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<div class=\"container\">");
+            out.println("tambah maksud");
             out.println("<h1>Your body fat is " + bodyFat(bmi, age, gender) + "%</h1>");
             out.println("<p>For more information about the formula, visit the <a href=\"https://www.tgfitness.com/body-fat-percentage-calculator/\" target=\"_blank\">website</a>.</p>");
+            out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");
+            out.println("<script>");
+            out.println("function goBack() {");
+            out.println("window.history.back();");
+            out.println("}");
+            out.println("</script>");
             out.println("</body>");
             out.println("</html>");
         }

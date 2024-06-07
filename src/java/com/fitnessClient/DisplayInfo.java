@@ -64,7 +64,7 @@ public class DisplayInfo extends HttpServlet {
             // Buttons to trigger modals
             out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"submitBMIForm()\">Calculate BMI</button>");
             out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"submitBodyFatForm()\">Calculate Body Fat</button>");
-            out.println("<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#calorieModal\">Open Calorie Form</button>");
+            out.println("<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#calorieModal\">Calculate Calorie Burn Rate</button>");
             out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"submitDailyNeedForm()\">Calculate Daily Calorie Need</button>");
 
 

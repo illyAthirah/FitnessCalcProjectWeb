@@ -56,7 +56,14 @@ public class DetermineCalorieNeed extends HttpServlet {
             out.println("<body>");
             out.println("<div class=\"container\">");
             out.println("<h1>Your daily calorie need is " + dailyCalorieNeed(weight, height, age, gender) + "</h1>");
+            out.println("try tambah basic suggestion kalau lebih or kurang");
+            out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");
+            out.println("<script>");
+            out.println("function goBack() {");
+            out.println("window.history.back();");
+            out.println("}");
+            out.println("</script>");
             out.println("</body>");
             out.println("</html>");
         }

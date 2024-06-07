@@ -56,8 +56,15 @@ public class CalcBMI extends HttpServlet {
             out.println("<div class=\"container\">");
             out.println("<img src=\"https://lirp.cdn-website.com/69c0b277/dms3rep/multi/opt/BMI+levels-640w.jpg\" alt=\"Description of Image\" style=\"max-width: 80%; height: auto;\">");
             out.println("<h1>Your BMI is " + determineBMI(weight, height) + "</h1>");
+            out.println("tambah current status if else kot");
             out.println("<p>For more information about the BMI formula, visit the <a href=\"https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.html\" target=\"_blank\">CDC website</a>.</p>");
+            out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");
+            out.println("<script>");
+            out.println("function goBack() {");
+            out.println("window.history.back();");
+            out.println("}");
+            out.println("</script>");
             out.println("</body>");
             out.println("</html>");
         }
