@@ -11,6 +11,10 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.xml.ws.WebServiceException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -25,12 +29,21 @@ public class FitnessCalcWS {
      */
     
     @WebMethod(operationName = "determineAge")
-    public String determineAge(String idNumber) {
-            String birthDateString = idNumber.substring(0, 6);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMdd");
-            LocalDate birthDate = LocalDate.parse(birthDateString, formatter);
-            return String.valueOf(Period.between(birthDate, LocalDate.now()).getYears());
-        
+    public String determineAge(String icNumber) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyMMdd");
+        Date birthDate = dateFormat.parse(icNumber.substring(0, 6));
+
+        Calendar birthCalendar = Calendar.getInstance();
+        birthCalendar.setTime(birthDate);
+
+        Calendar currentCalendar = Calendar.getInstance();
+
+        int age = currentCalendar.get(Calendar.YEAR) - birthCalendar.get(Calendar.YEAR);
+
+        if (currentCalendar.get(Calendar.DAY_OF_YEAR) < birthCalendar.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+        return String.valueOf(age);
     }
     
     @WebMethod(operationName = "displayInformation")
