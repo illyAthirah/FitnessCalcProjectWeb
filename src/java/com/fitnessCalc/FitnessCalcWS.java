@@ -4,18 +4,12 @@
  */
 package com.fitnessCalc;
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.xml.ws.WebServiceException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-
 
 /**
  *
