@@ -58,7 +58,7 @@ public class FitnessCalcWS {
   }
      
      public String calorieBurnRate(int duration, double met, double weight) {
-      double burnRate = duration * (met*3.5*weight)/200;
+      double burnRate = (duration*met*weight)/200;
       return String.format("%.2f", burnRate);
   }
      
