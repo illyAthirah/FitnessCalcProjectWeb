@@ -96,6 +96,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <option value="infoForm">Display Info</option>
                 <option value="bmiForm">Calculate BMI</option>
                 <option value="bodyFatForm">Calculate body fat</option>
+                <option value="calorieForm">Calculate calory burn rate</option>
             </select>
         </div>
 
@@ -140,6 +141,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
+            <input type="submit" value="Submit" />
+        </form>
+        
+        <form id="calorieForm" action="DetermineBurnRate">
+            <label for="duration">Enter your duration:</label>
+            <input type="text" id="duration" name="duration" value="" />
+            <label for="met">Enter your activity</label>
+            <select id="met" name="met">
+                <option value="0.9">Sleeping</option>
+                <option value="1.0">Watching television</option>
+                <option value="1.8">Writing, desk work, typing</option>
+                <option value="2.3">Walking, 1.7 mph (2.7 km/h), level ground, strolling, very slow</option>
+                <option value="2.9">Walking, 2.5 mph (4 km/h)</option>
+                <option value="3.0">Bicycling, stationary, 50 W, very light effort</option>
+                <option value="3.3">Walking, 3.0 mph (4.8 km/h)</option>
+                <option value="3.5">Calisthenics, home exercise, light or moderate effort, general</option>
+                <option value="3.6">Walking, 3.4 mph (5.5 km/h)</option>
+                <option value="4.0">Bicycling, less than 10 mph (16 km/h), leisure, to work or for pleasure</option>
+                <option value="5.5">Bicycling, stationary, 100 W, light effort</option>
+                <option value="7.0">Jogging, general</option>
+                <option value="8.0">Calisthenics (e.g., push-ups, sit-ups, pull-ups, jumping jacks), heavy, vigorous effort</option>
+                <option value="8.0">Running jogging, in place</option>
+                <option value="10.0">Rope jumping</option>
+            </select>
+            <label for="weight">Enter your weight</label>
+            <input type="text" id="weight" name="weight" value="" />
             <input type="submit" value="Submit" />
         </form>
     </body>

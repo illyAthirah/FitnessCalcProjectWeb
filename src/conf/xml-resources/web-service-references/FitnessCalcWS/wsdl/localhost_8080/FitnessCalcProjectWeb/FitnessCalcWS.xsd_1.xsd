@@ -4,6 +4,10 @@
 
 <xs:element name="bodyFatResponse" type="tns:bodyFatResponse"/>
 
+<xs:element name="calorieBurnRate" type="tns:calorieBurnRate"/>
+
+<xs:element name="calorieBurnRateResponse" type="tns:calorieBurnRateResponse"/>
+
 <xs:element name="determineAge" type="tns:determineAge"/>
 
 <xs:element name="determineAgeResponse" type="tns:determineAgeResponse"/>
@@ -16,18 +20,6 @@
 
 <xs:element name="displayInformationResponse" type="tns:displayInformationResponse"/>
 
-<xs:complexType name="determineAge">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="determineAgeResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="displayInformation">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -39,6 +31,18 @@
 </xs:complexType>
 
 <xs:complexType name="displayInformationResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="determineAge">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="determineAgeResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -66,6 +70,20 @@
 </xs:complexType>
 
 <xs:complexType name="determineBMIResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calorieBurnRate">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:double"/>
+<xs:element name="arg2" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="calorieBurnRateResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

@@ -56,5 +56,9 @@ public class FitnessCalcWS {
           bodyFatPercentage = (1.20 * bmi) + (0.23 * age) - 5.4;
       return String.format("%.2f", bodyFatPercentage);
   }
-
+     
+     public String calorieBurnRate(int duration, double met, double weight) {
+      double burnRate = duration * (met*3.5*weight)/200;
+      return String.format("%.2f", burnRate);
+  }
 }
