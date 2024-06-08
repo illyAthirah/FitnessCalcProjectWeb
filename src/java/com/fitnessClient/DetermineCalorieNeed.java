@@ -45,19 +45,43 @@ public class DetermineCalorieNeed extends HttpServlet {
             out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
             out.println("<title>Servlet DisplayInfo</title>");
             out.println("<style>");
-            out.println("body { font-family: Arial, sans-serif; background-color: #f0f8ff; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
-            out.println(".container { text-align: center; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
-            out.println("h1 { color: #0073e6; }");
+            out.println("body { font-family: Arial, sans-serif; background-color: #FEFAF6; color: #333; margin-left:0px; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
+            out.println(".container { text-align: center; background: #fff; padding: 5px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
+            out.println("h1 { font-family: Optima; color: #102C57;font-weight: bold; text-align: center;}");
+            //out.println(".gmbr { max-width: 850px; margin: 120px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #EADBC8; }");
             out.println("p { font-size: 1.1em; }");
+            out.println("button { background-color: #102C57; color: white; border: none; padding: 10px 20px; font-size: 1em; cursor: pointer; border-radius: 5px; }");
+            out.println("button:hover { background-color: #102C57; }");
             out.println("a { color: #0073e6; text-decoration: none; }");
             out.println("a:hover { text-decoration: underline; }");
+            out.println("table { width: 50%; margin: 20px auto; border-collapse: collapse; }");
+            out.println("table, th, td { border: 1px solid #333; }");
+            out.println("th, td { padding: 10px;  }");
+            out.println("th { background-color: #DFD3C3; }");
             out.println("</style>");
             out.println("</head>");
+            
             out.println("<body>");
+            //out.println("<img src=\"https://d2jx2rerrg6sh3.cloudfront.net/image-handler/picture/2019/1/By_photka.jpg\" alt=\"Description of Image\" style=\"max-width: 30%; margin-left:50px; border-right:0 height: auto; position: center;\">");
+           
+            out.println("<div class=\"gmbr\">");
+            out.println("<h1>DETERMINE CALORIES NEED</h1>");
             out.println("<div class=\"container\">");
-            out.println("<h1>Your daily calorie need is " + dailyCalorieNeed(weight, height, age, gender) + "</h1>");
-            out.println("try tambah basic suggestion kalau lebih or kurang");
+            out.println("<h1>Your daily calorie need is " + dailyCalorieNeed(weight, height, age, gender) + "KCal</h1>");
+            out.println("<p>Here are some suggestions if you're eating fewer or over calories than recommended :- </p>");
+           
+            out.println("<table>");
+            out.println("<tr><th>Factor</th><th>Action</th></tr>");
+            out.println("<tr><td>Less Calories Intake Per Day:</td><td>1. Choose foods that are high in nutrients but low in empty calories. Examples include vegetables, fruits, lean proteins, and whole grains. </td></tr>");
+            out.println("<tr><td></td><td>2. Eat regular meals and snacks to keep your energy levels stable throughout the day.</td></tr>");
+            out.println("<tr><td></td><td>3. Make sure your diet includes a variety of foods to provide all the essential nutrients. Focus on lean proteins, whole grains, fruits, vegetables, and healthy fats. </td></tr>");
+            out.println("<tr><td>Over Calories Intake Per Day:</td><td>1. Pay attention to what you eat and enjoy your food without distractions. This can help you recognize hunger and fullness cues.</td></tr>");
+            out.println("<tr><td></td><td>2. Use a food diary or app to monitor what you're eating. This can help identify where you might be consuming excess calories.</td></tr>");
+            out.println("<tr><td></td><td>3. Pay attention to portion sizes. Eating smaller portions can help reduce calorie intake.</td></tr>");
+            out.println("</table>");
+            
             out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
+            out.println("</div>");
             out.println("</div>");
             out.println("<script>");
             out.println("function goBack() {");

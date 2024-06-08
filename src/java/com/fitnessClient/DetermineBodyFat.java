@@ -45,26 +45,50 @@ public class DetermineBodyFat extends HttpServlet {
             out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
             out.println("<title>Servlet BodyFat</title>");
             out.println("<style>");
-            out.println("body { font-family: Arial, sans-serif; background-color: #f0f8ff; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
-            out.println(".container { text-align: center; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
-            out.println("h1 { color: #0073e6; }");
+            out.println("body { font-family: Arial, sans-serif; background-color: #F8EDE3; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
+            out.println(".container { max-width: 600px; margin: 50px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #DFD3C3; }");
+            out.println(".maksud { text-align= justify; max-width: 850px; margin: 80px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #D0B8A8; }");
+            out.println("h2 { color: #102C57; font-style: italic; font-weight: bold;}");
+            out.println("h1 { font-family: Optima; color: #102C57;font-weight: bold;}");
+            out.println("button { background-color: #85586F; color: white; border: none; padding: 10px 20px; font-size: 1em; cursor: pointer; border-radius: 5px; }");
+            out.println("button:hover { background-color: #85586F; }");
+            //out.println(".div1 { font-family: Arial, sans-serif; font-weight: bold; margin-top: 0px}");
             out.println("p { font-size: 1.1em; }");
             out.println("a { color: #0073e6; text-decoration: none; }");
             out.println("a:hover { text-decoration: underline; }");
             out.println("</style>");
             out.println("</head>");
             out.println("<body>");
+            
+            
+            out.println("<img src=\"https://www.nutrilove.co.in/wp-content/uploads/2020/05/body-fat-percentage-min-3-1024x852.png\" alt=\"Description of Image\" style=\"max-width: 37%; margin-top:60px; text-align=center; height: auto;\">");
+            out.println("<div class=\"div1\">");
+            out.println("<h1>DETERMINE BODY FAT </h1>");
+            //maksud body fat
+            
+            out.println("<div class=\"maksud\">");
+            out.println("<h3>What is Body Fat? </h3>");
+            out.println("Body fat refers to the adipose tissue in the body, which is a specialized connective tissue");
+            out.println("composed mostly of fat cells called adipocytes. It serves several important functions,");
+            out.println("including energy storage, insulation, and cushioning of vital organs. Body fat is essential for ");
+            out.println("maintaining proper bodily functions, but excessive amounts can lead to health problems such as obesity, ");
+            out.println(" heart disease, and diabetes. The percentage of body weight that is composed of fat is often");
+            out.println("used as a measure of overall health and fitness.");
+            
+            
             out.println("<div class=\"container\">");
-            out.println("tambah maksud");
-            out.println("<h1>Your body fat is " + bodyFat(bmi, age, gender) + "%</h1>");
+            out.println("<h2>Your body fat is " + bodyFat(bmi, age, gender) + "%</h2>");
             out.println("<p>For more information about the formula, visit the <a href=\"https://www.tgfitness.com/body-fat-percentage-calculator/\" target=\"_blank\">website</a>.</p>");
             out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
+            out.println("</div>");
+            out.println("</div>");
             out.println("</div>");
             out.println("<script>");
             out.println("function goBack() {");
             out.println("window.history.back();");
             out.println("}");
             out.println("</script>");
+            
             out.println("</body>");
             out.println("</html>");
         }
