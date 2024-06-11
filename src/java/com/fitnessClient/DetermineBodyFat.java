@@ -47,7 +47,7 @@ public class DetermineBodyFat extends HttpServlet {
             out.println("<style>");
             out.println("body { font-family: Arial, sans-serif; background-color: #F8EDE3; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
             out.println(".container { max-width: 600px; margin: 50px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #DFD3C3; }");
-            out.println(".maksud { text-align= justify; max-width: 850px; margin: 80px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #D0B8A8; }");
+            out.println(".maksud { text-align= justify; max-width: 850px; margin: 80px auto; line-height:1.4; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #D0B8A8; }");
             out.println("h2 { color: #102C57; font-style: italic; font-weight: bold;}");
             out.println("h1 { font-family: Optima; color: #102C57;font-weight: bold;}");
             out.println("button { background-color: #85586F; color: white; border: none; padding: 10px 20px; font-size: 1em; cursor: pointer; border-radius: 5px; }");

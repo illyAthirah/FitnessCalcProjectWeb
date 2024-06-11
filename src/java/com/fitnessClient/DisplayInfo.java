@@ -36,7 +36,7 @@ public class DisplayInfo extends HttpServlet {
             out.println("<style>");
             out.println("body { font-family: Arial, sans-serif; background-color: #F8EDE3; color: #333; }");
             out.println(".container { max-width: 600px; margin: 50px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #D0B8A8; }");
-            out.println("h1 { font-family: Optima; color: #102C57;font-weight: bold; text-align: center;}");
+            out.println("h1 { font-family: Optima; color: #102C57;font-weight: bold; text-align: center; margin-top: 50px;}");
             out.println("h4 { color: black; text-align: center; }");
             out.println("h5 { color: black; margin-top:50px; margin-bottom:10px; font-family:Copperplate; text-align: center; }");
             out.println(".details { margin-top: 10px; }");
@@ -46,9 +46,8 @@ public class DisplayInfo extends HttpServlet {
             out.println("</style>");
             out.println("</head>");
             
-            out.println("<body>");
-            out.println("<button type=\"button\" class=\"btn btn-curved\" href=\"\" style=\"margin-left: 100px; color: white; margin-top: 30px; background-color:#85586F; \">Back</button>");
-            out.println("<div class=\"div1\">");
+            out.println("<body>\n\n");
+           out.println("<div class=\"div1\">");
             out.println("<h1>MY INFORMATION </h1>");
             out.println("<div class=\"container text-center\">"); // Added 'text-center' class
             out.println("<h4>Hello, " + fullName + "!</h4>");
@@ -69,8 +68,14 @@ public class DisplayInfo extends HttpServlet {
             out.println("<button type=\"button\" class=\"btn btn-curved\" onclick=\"submitDailyNeedForm()\" style=\"margin-right: 10px; color: white; margin-top:10px; background-color:#85586F; \">Calculate Daily Calorie Need</button>");
             out.println("</div>");
             out.println("</div>");
-
-         
+            out.println("<button type=\"button\" class=\"btn btn-curved\" onclick=\"goBack()\" style=\"margin-left: 700px; color: white; margin-top: 1px; background-color:#85586F; width: 150px; height: 50px;\"> Back </button>");
+                
+            out.println("<script>");
+            out.println("function goBack() {");
+            out.println("window.history.back();");
+            out.println("}");
+            out.println("</script>");
+            
             // Hidden form for BMI calculation
             out.println("<form id=\"bmiForm\" action=\"CalcBMI\" method=\"post\" style=\"display:none;\">");
             out.println("<input type=\"hidden\" name=\"height\" value=\"" + height + "\" />");

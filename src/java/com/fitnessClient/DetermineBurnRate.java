@@ -46,12 +46,12 @@ public class DetermineBurnRate extends HttpServlet {
             out.println("<title>Servlet DisplayInfo</title>");
             out.println("<style>");
             out.println("body { font-family: Arial, sans-serif; background-color: #F8EDE3; color: #333; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
-            out.println(".container { text-align: center; background: #DFD3C3; margin-top:5px; padding: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
+            out.println(".container { text-align: center; background: #DFD3C3; margin-top:30px; padding: 10px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
             out.println("h1 { font-family: Optima; color: #102C57;font-weight: bold; text-align: center;}");
             out.println("p { font-size: 1.1em; }");
             out.println("button { background-color: #85586F; color: white; border: none; padding: 10px 20px; font-size: 1em; cursor: pointer; border-radius: 5px; }");
             out.println("button:hover { background-color: #85586F; }");
-            out.println(".maksud { text-align= justify; max-width: 800px; margin: 50px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #D0B8A8; }");
+            out.println(".maksud { text-align= justify; max-width: 800px; margin: 50px auto; line-height:1.4;padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #D0B8A8; }");
             out.println("a { color: #0073e6; text-decoration: none; }");
             out.println("a:hover { text-decoration: underline; }");
             out.println("table { width: 50%; margin: 20px auto; border-collapse: collapse; }");
@@ -81,6 +81,7 @@ public class DetermineBurnRate extends HttpServlet {
             out.println("<tr><td>Metabolic Equivalent of Task</td><td>" + met + "</td></tr>");
             out.println("<tr><td>Weight</td><td>" + weight + " kg</td></tr>");
             out.println("</table>");
+            out.println("<p>For more information about the formula, visit the <a href=\"https://www.medicalnewstoday.com/articles/319731#calculating-daily-calorie-burn\" target=\"_blank\">website</a>.</p>");
 
             out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");

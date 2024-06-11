@@ -36,7 +36,7 @@ public class CalcBMI extends HttpServlet {
             out.println("h2 { color: #102C57; }");
             out.println("h3 { color: #102C57; }");
             out.println("button { background-color: #85586F; color: white; border: none; padding: 10px 20px; font-size: 1em; cursor: pointer; border-radius: 5px; }");
-            out.println("button:hover { background-color: #102C57; }");
+            
             out.println("p { font-size: 1.1em; }");
             out.println("a { color: #0073e6; text-decoration: none; }");
             out.println("a:hover { text-decoration: underline; }");
@@ -48,7 +48,7 @@ public class CalcBMI extends HttpServlet {
             out.println("<h1><b> Result :</b></h1>");
             out.println("<h2>Your BMI is <b>" + bmiResult + "</b></h2>");
             out.println("<h3>Your BMI Status is " + bmiStatus + "</h3>");
-            out.println("<p>For more information about the BMI formula, visit the <a href=\"https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.html\" target=\"_blank\">CDC website</a>.</p>");
+            out.println("<p>For more information about the BMI formula, visit the <a href=\"https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.html\" target=\"_blank\">website</a>.</p>");
             out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");
             out.println("<script>");
