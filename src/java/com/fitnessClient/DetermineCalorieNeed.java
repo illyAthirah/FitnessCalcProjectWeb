@@ -41,38 +41,25 @@ public class DetermineCalorieNeed extends HttpServlet {
             String gender = request.getParameter("gender");    
             
             double calorieNeed = Double.parseDouble(dailyCalorieNeed(weight, height, age, gender));
-            String goal;
-            String dailyCalorieAllowance;
-            String dailyFatAllowance;
-            String saturatedFatAllowance;
-            String saturatedFatAllowanceHeartDisease;
-
-        if (calorieNeed >= 3333) {
-            goal = "Gain 1 kg/week";
-            dailyCalorieAllowance = "3,333 Calories";
-            dailyFatAllowance = "76 - 133 grams";
-            saturatedFatAllowance = "< 38 grams";
-            saturatedFatAllowanceHeartDisease = "< 27 grams";
-        } else if (calorieNeed >= 2833) {
-            goal = "Gain 0.5 kg/week";
-            dailyCalorieAllowance = "2,833 Calories";
-            dailyFatAllowance = "64 - 113 grams";
-            saturatedFatAllowance = "< 32 grams";
-            saturatedFatAllowanceHeartDisease = "< 23 grams";
-        } else if (calorieNeed >= 1833) {
-            goal = "Lose 0.5 kg/week";
-            dailyCalorieAllowance = "1,833 Calories";
-            dailyFatAllowance = "42 - 73 grams";
-            saturatedFatAllowance = "< 21 grams";
-            saturatedFatAllowanceHeartDisease = "< 15 grams";
-        } else {
-            goal = "Weight Maintenance";
-            dailyCalorieAllowance = "2,333 Calories";
-            dailyFatAllowance = "53 - 93 grams";
-            saturatedFatAllowance = "< 27 grams";
-            saturatedFatAllowanceHeartDisease = "< 19 grams";
-        }
             
+             String fatIntakeLimit;
+            if (age >= 2 && age <= 3) {
+               fatIntakeLimit = "30% to 40% of Total Calories";
+               } else if (age >= 4 && age <= 18) {
+               fatIntakeLimit = "25% to 35% of Total Calories";
+                } else {
+               fatIntakeLimit = "20% to 35% of Total Calories";
+             }
+
+             double minFatIntake = calorieNeed * 0.20 / 9;
+             double maxFatIntake = calorieNeed * 0.35 / 9;
+        
+             double loseHalfKg = calorieNeed - 500;
+             double loseOneKg = calorieNeed - 1000;
+             double gainHalfKg = calorieNeed + 500;
+             double gainOneKg = calorieNeed + 1000;
+             
+             
             out.println("<html lang=\"en\">");
             out.println("<head>");
             out.println("<meta charset=\"UTF-8\">");
@@ -80,7 +67,7 @@ public class DetermineCalorieNeed extends HttpServlet {
             out.println("<title>Servlet DisplayInfo</title>");
             out.println("<style>");
             out.println("body { font-family: Arial, sans-serif; background-color: #F8EDE3; color: #333; margin-left:0px; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }");
-            out.println(".container { text-align: center; background: #D0B8A8; padding: 5px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
+            out.println(".container { text-align: center; background: #D0B8A8; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }");
             out.println("h1 { font-family: Optima; color: #102C57;font-weight: bold; text-align: center;}");
             //out.println(".gmbr { max-width: 850px; margin: 120px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #EADBC8; }");
             out.println("p { font-size: 1.1em; }");
@@ -107,7 +94,11 @@ public class DetermineCalorieNeed extends HttpServlet {
            
             out.println("<table>");
             out.println("<tr><th>Goal</th><th>Daily Calorie Allowance</th><th>Daily Fat Allowance (20-35%)</th><th>Saturated Fat Allowance (10%)</th><th>Saturated Fat Allowance to Help Reduce Heart Disease (7%)</th></tr>");
-            out.println("<tr><td>" + goal + "</td><td>" + dailyCalorieAllowance + "</td><td>" + dailyFatAllowance + "</td><td>" + saturatedFatAllowance + "</td><td>" + saturatedFatAllowanceHeartDisease + "</td></tr>");
+            out.println("<tr><td>Weight Maintenance</td><td>" + Math.round(calorieNeed) + " Calories</td><td>" + Math.round(minFatIntake) + " - " + Math.round(maxFatIntake) + " grams</td><td><" + Math.round(calorieNeed * 0.10 / 9) + " grams</td><td><" + Math.round(calorieNeed * 0.07 / 9) + " grams</td></tr>");
+            out.println("<tr><td>Lose 0.5 kg/week</td><td>" + Math.round(loseHalfKg) + " Calories</td><td>" + Math.round(loseHalfKg * 0.20 / 9) + " - " + Math.round(loseHalfKg * 0.35 / 9) + " grams</td><td><" + Math.round(loseHalfKg * 0.10 / 9) + " grams</td><td><" + Math.round(loseHalfKg * 0.07 / 9) + " grams</td></tr>");
+            out.println("<tr><td>Lose 1 kg/week</td><td>" + Math.round(loseOneKg) + " Calories</td><td>" + Math.round(loseOneKg * 0.20 / 9) + " - " + Math.round(loseOneKg * 0.35 / 9) + " grams</td><td><" + Math.round(loseOneKg * 0.10 / 9) + " grams</td><td><" + Math.round(loseOneKg * 0.07 / 9) + " grams</td></tr>");
+            out.println("<tr><td>Gain 0.5 kg/week</td><td>" + Math.round(gainHalfKg) + " Calories</td><td>" + Math.round(gainHalfKg * 0.20 / 9) + " - " + Math.round(gainHalfKg * 0.35 / 9) + " grams</td><td><" + Math.round(gainHalfKg * 0.10 / 9) + " grams</td><td><" + Math.round(gainHalfKg * 0.07 / 9) + " grams</td></tr>");
+            out.println("<tr><td>Gain 1 kg/week</td><td>" + Math.round(gainOneKg) + " Calories</td><td>" + Math.round(gainOneKg * 0.20 / 9) + " - " + Math.round(gainOneKg * 0.35 / 9) + " grams</td><td><" + Math.round(gainOneKg * 0.10 / 9) + " grams</td><td><" + Math.round(gainOneKg * 0.07 / 9) + " grams</td></tr>");
             out.println("</table>");
             
             out.println("<p>For more information about the formula, visit the <a href=\"https://supernutritious.net/how-to-calculate-how-much-calories-you-need/?utm_source=google&utm_medium=src&utm_campaign=17931549982&utm_term=&utm_content=gid|140615798398|dvc|c&gad_source=1&gclid=CjwKCAjwyJqzBhBaEiwAWDRJVB0L86rhH168NEE7A_EWsg8M9Ki-nZOFaXpBc4iuU3Y6_3rhHGULhRoCVVAQAvD_BwE\" target=\"_blank\">website</a>.</p>");
