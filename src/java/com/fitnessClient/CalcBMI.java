@@ -47,8 +47,8 @@ public class CalcBMI extends HttpServlet {
             out.println("<img src=\"https://lirp.cdn-website.com/69c0b277/dms3rep/multi/opt/BMI+levels-640w.jpg\" alt=\"Description of Image\" style=\"max-width: 80%; height: auto;\">");
             out.println("<h1><b> Result :</b></h1>");
             out.println("<h2>Your BMI is <b>" + bmiResult + "</b></h2>");
-            out.println("<h3>Your BMI Status is " + bmiStatus + "</h3>");
-            out.println("<p>For more information about the BMI formula, visit the <a href=\"https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.html\" target=\"_blank\">website</a>.</p>");
+            out.println("<h3>You fall into the category: " + bmiStatus + "</h3>");
+            out.println("<p>Formula derived from the <a href=\"https://www.cdc.gov/nccdphp/dnpao/growthcharts/training/bmiage/page5_1.html\" target=\"_blank\">CDC</a>.</p>");
             out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");
             out.println("<script>");
@@ -85,13 +85,14 @@ public class CalcBMI extends HttpServlet {
 
     private String getBMIStatus(double bmi) {
         if (bmi < 18.5) {
-            return "Underweight";
-        } else if (bmi >= 18.5 && bmi < 24.9) {
-            return "Normal weight";
-        } else if (bmi >= 25 && bmi < 29.9) {
-            return "Overweight";
-        } else {
-            return "Obese";
-        }
+            return "underweight.";
+        } else if (bmi >= 18.5 && bmi < 24.9)
+            return "normal weight.";
+         else if (bmi >= 25 && bmi < 29.9)
+            return "overweight.";
+         else if (bmi >= 30 && bmi < 34.9)
+            return "obese.";
+         else
+            return "extremely obese.";
     }
 }

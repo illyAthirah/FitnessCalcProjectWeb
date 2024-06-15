@@ -47,7 +47,7 @@ public class DisplayInfo extends HttpServlet {
             out.println("</head>");
             
             out.println("<body>\n\n");
-           out.println("<div class=\"div1\">");
+            out.println("<div class=\"div1\">");
             out.println("<h1>MY INFORMATION </h1>");
             out.println("<div class=\"container text-center\">"); // Added 'text-center' class
             out.println("<h4>Hello, " + fullName + "!</h4>");
@@ -68,7 +68,10 @@ public class DisplayInfo extends HttpServlet {
             out.println("<button type=\"button\" class=\"btn btn-curved\" onclick=\"submitDailyNeedForm()\" style=\"margin-right: 10px; color: white; margin-top:10px; background-color:#85586F; \">Calculate Daily Calorie Need</button>");
             out.println("</div>");
             out.println("</div>");
-            out.println("<button type=\"button\" class=\"btn btn-curved\" onclick=\"goBack()\" style=\"margin-left: 700px; color: white; margin-top: 1px; background-color:#85586F; width: 150px; height: 50px;\"> Back </button>");
+            out.println("<div style=\"display: flex; justify-content: center; align-items: center;\">");
+            out.println("<button type=\"button\" class=\"btn btn-curved\" onclick=\"goBack()\" style=\"color: white; background-color:#85586F; width: 150px; height: 50px;\"> Exit </button>");
+            out.println("</div>");
+
                 
             out.println("<script>");
             out.println("function goBack() {");
@@ -76,21 +79,17 @@ public class DisplayInfo extends HttpServlet {
             out.println("}");
             out.println("</script>");
             
-            // Hidden form for BMI calculation
             out.println("<form id=\"bmiForm\" action=\"CalcBMI\" method=\"post\" style=\"display:none;\">");
             out.println("<input type=\"hidden\" name=\"height\" value=\"" + height + "\" />");
             out.println("<input type=\"hidden\" name=\"weight\" value=\"" + weight + "\" />");
             out.println("</form>");
 
-
-            // Hidden form for Body Fat calculation
             out.println("<form id=\"bodyFatForm\" action=\"DetermineBodyFat\" method=\"post\" style=\"display:none;\">");
             out.println("<input type=\"hidden\" name=\"bmi\" value=\"" + determineBMI(weight, height) + "\" />");
             out.println("<input type=\"hidden\" name=\"age\" value=\"" + determineAge(icNum) + "\" />");
             out.println("<input type=\"hidden\" name=\"gender\" value=\"" + gender + "\" />");
             out.println("</form>");
 
-            // Calorie Form Modal
             out.println("<div class=\"modal fade\" id=\"calorieModal\" tabindex=\"-1\" aria-labelledby=\"calorieModalLabel\" aria-hidden=\"true\">");
             out.println("<div class=\"modal-dialog\">");
             out.println("<div class=\"modal-content\">");
@@ -104,19 +103,19 @@ public class DisplayInfo extends HttpServlet {
             out.println("<form id=\"calorieForm\" action=\"DetermineBurnRate\">");
             out.println("<div class=\"form-group\">");
             out.println("<label for=\"duration\">Enter the duration (minutes):</label>");
-            out.println("<input type=\"text\" class=\"form-control\" id=\"duration\" name=\"duration\" value=\"\" />");
+            out.println("<input type=\"number\" class=\"form-control\" id=\"duration\" name=\"duration\" value=\"\" min=\"1\" />");
             out.println("</div>");
             out.println("<div class=\"form-group\">");
             out.println("<label for=\"met\">Enter your activity:</label>");
             out.println("<select class=\"form-control\" id=\"met\" name=\"met\">");
             out.println("<option value=\"1.8\">Writing, desk work, typing</option>");
-            out.println("<option value=\"2.3\">Walking, 1.7 mph (2.7 km/h), level ground, strolling, very slow</option>");
-            out.println("<option value=\"2.9\">Walking, 2.5 mph (4 km/h)</option>");
+            out.println("<option value=\"2.3\">Walking, (2.7 km/h), level ground, strolling, very slow</option>");
+            out.println("<option value=\"2.9\">Walking, (4 km/h)</option>");
             out.println("<option value=\"3.0\">Bicycling, stationary, 50 W, very light effort</option>");
-            out.println("<option value=\"3.3\">Walking, 3.0 mph (4.8 km/h)</option>");
+            out.println("<option value=\"3.3\">Walking, (4.8 km/h)</option>");
             out.println("<option value=\"3.5\">Calisthenics, home exercise, light or moderate effort, general</option>");
-            out.println("<option value=\"3.6\">Walking, 3.4 mph (5.5 km/h)</option>");
-            out.println("<option value=\"4.0\">Bicycling, less than 10 mph (16 km/h), leisure, to work or for pleasure</option>");
+            out.println("<option value=\"3.6\">Walking, (5.5 km/h)</option>");
+            out.println("<option value=\"4.0\">Bicycling, (<16 km/h), leisure, to work or for pleasure</option>");
             out.println("<option value=\"5.5\">Bicycling, stationary, 100 W, light effort</option>");
             out.println("<option value=\"7.0\">Jogging, general</option>");
             out.println("<option value=\"8.0\">Calisthenics (e.g., push-ups, sit-ups, pull-ups, jumping jacks), heavy, vigorous effort</option>");
@@ -134,8 +133,7 @@ public class DisplayInfo extends HttpServlet {
             out.println("</div>");
             out.println("</div>");
 
-            // Button to trigger the Daily Calorie Need calculation
-            // Hidden form for Daily Calorie Need calculation
+
             out.println("<form id=\"dailyNeedForm\" action=\"DetermineCalorieNeed\" method=\"post\" style=\"display:none;\">");
             out.println("<input type=\"hidden\" name=\"age\" value=\"" + determineAge(icNum) + "\" />");
             out.println("<input type=\"hidden\" name=\"height\" value=\"" + height + "\" />");
@@ -143,7 +141,6 @@ public class DisplayInfo extends HttpServlet {
             out.println("<input type=\"hidden\" name=\"gender\" value=\"" + gender + "\" />");
             out.println("</form>");
 
-            // JavaScript to submit the hidden form
             out.println("<script>");
             out.println("function submitBMIForm() {");
             out.println("    document.getElementById('bmiForm').submit();");

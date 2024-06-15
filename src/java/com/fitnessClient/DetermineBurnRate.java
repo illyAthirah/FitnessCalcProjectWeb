@@ -81,8 +81,8 @@ public class DetermineBurnRate extends HttpServlet {
             out.println("<tr><td>Metabolic Equivalent of Task</td><td>" + met + "</td></tr>");
             out.println("<tr><td>Weight</td><td>" + weight + " kg</td></tr>");
             out.println("</table>");
-            out.println("<p>For more information about the formula, visit the <a href=\"https://www.medicalnewstoday.com/articles/319731#calculating-daily-calorie-burn\" target=\"_blank\">website</a>.</p>");
-
+            out.println("<p>Formula derived from <a href=\"https://www.healthline.com/health/what-are-mets\" target=\"_blank\">HealthLine</a>.</p>");
+            out.println("<p>MET values gathered from <a href=\"https://www.researchgate.net/figure/2-MET-values-for-physical-activity-levels_tbl2_294283835\" target=\"_blank\">ResearchGate</a>.</p>");
             out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");
             out.println("</div>");

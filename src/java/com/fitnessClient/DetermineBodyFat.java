@@ -38,6 +38,8 @@ public class DetermineBodyFat extends HttpServlet {
             String gender = request.getParameter("gender");
             double bmi = Double.parseDouble(request.getParameter("bmi"));
             int age = Integer.parseInt(request.getParameter("age"));
+            double bodyFatPercentage = Double.parseDouble(bodyFat(bmi, age, gender));
+            String bodyFatCategory = getBodyFatCategory(bodyFatPercentage, gender);
             out.println("<!DOCTYPE html>");
             out.println("<html lang=\"en\">");
             out.println("<head>");
@@ -78,7 +80,8 @@ public class DetermineBodyFat extends HttpServlet {
             
             out.println("<div class=\"container\">");
             out.println("<h2>Your body fat is " + bodyFat(bmi, age, gender) + "%</h2>");
-            out.println("<p>For more information about the formula, visit the <a href=\"https://www.tgfitness.com/body-fat-percentage-calculator/\" target=\"_blank\">website</a>.</p>");
+            out.println("<h2>You fall into the category: " + bodyFatCategory + "</h2>");
+            out.println("<p>Formula derived from <a href=\"https://www.tgfitness.com/body-fat-percentage-calculator/\" target=\"_blank\">TGFitness</a>.</p>");
             out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
             out.println("</div>");
             out.println("</div>");
@@ -138,6 +141,35 @@ public class DetermineBodyFat extends HttpServlet {
         // If the calling of port operations may lead to race condition some synchronization is required.
         com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
         return port.bodyFat(arg0, arg1, arg2);
+    }
+    
+    private String getBodyFatCategory(double bodyFatPercentage, String gender) {
+        if (gender.equalsIgnoreCase("male")) {
+            if (bodyFatPercentage >= 2 && bodyFatPercentage <= 5) {
+                return "Essential fat";
+            } else if (bodyFatPercentage >= 6 && bodyFatPercentage <= 13) {
+                return "Athletes";
+            } else if (bodyFatPercentage >= 14 && bodyFatPercentage <= 17) {
+                return "Fitness";
+            } else if (bodyFatPercentage >= 18 && bodyFatPercentage <= 24) {
+                return "Average";
+            } else if (bodyFatPercentage >= 25) {
+                return "Obese";
+            }
+        } else if (gender.equalsIgnoreCase("female")) {
+            if (bodyFatPercentage >= 10 && bodyFatPercentage <= 13) {
+                return "Essential fat";
+            } else if (bodyFatPercentage >= 14 && bodyFatPercentage <= 20) {
+                return "Athletes";
+            } else if (bodyFatPercentage >= 21 && bodyFatPercentage <= 24) {
+                return "Fitness";
+            } else if (bodyFatPercentage >= 25 && bodyFatPercentage <= 31) {
+                return "Average";
+            } else if (bodyFatPercentage >= 32) {
+                return "Obese";
+            }
+        }
+        return "Unknown category";
     }
 
 }

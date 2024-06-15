@@ -101,7 +101,7 @@ public class DetermineCalorieNeed extends HttpServlet {
             out.println("<tr><td>Gain 1 kg/week</td><td>" + Math.round(gainOneKg) + " Calories</td><td>" + Math.round(gainOneKg * 0.20 / 9) + " - " + Math.round(gainOneKg * 0.35 / 9) + " grams</td><td><" + Math.round(gainOneKg * 0.10 / 9) + " grams</td><td><" + Math.round(gainOneKg * 0.07 / 9) + " grams</td></tr>");
             out.println("</table>");
             
-            out.println("<p>For more information about the formula, visit the <a href=\"https://supernutritious.net/how-to-calculate-how-much-calories-you-need/?utm_source=google&utm_medium=src&utm_campaign=17931549982&utm_term=&utm_content=gid|140615798398|dvc|c&gad_source=1&gclid=CjwKCAjwyJqzBhBaEiwAWDRJVB0L86rhH168NEE7A_EWsg8M9Ki-nZOFaXpBc4iuU3Y6_3rhHGULhRoCVVAQAvD_BwE\" target=\"_blank\">website</a>.</p>");
+            out.println("<p>Formula derived from <a href=\"https://www.verywellfit.com/basal-metabolic-rate-1229751\" target=\"_blank\">VeryWellFit (using the Revised Harris-Benedict Equation)</a>.</p>");
 
             
             out.println("<button class=\"btn btn-primary\" onclick=\"goBack()\">Go Back</button>");
