@@ -41,27 +41,7 @@ public class FitnessCalcWS {
     }
     
     @WebMethod(operationName = "displayInformation")
-    public String displayInformation(String fullName, String icNum, String gender, double weight, double height) throws FaultMessage {
-        if (fullName == null || fullName.isEmpty()) {
-            throw new FaultMessage("Full Name cannot be null or empty");
-        }
-        
-        if (icNum == null || icNum.isEmpty()) {
-            throw new FaultMessage("IC Number cannot be null or empty");
-        }
-        
-        if (gender == null || gender.isEmpty()) {
-            throw new FaultMessage("Gender cannot be null or empty");
-        }
-        
-        if (weight <= 0) {
-            throw new FaultMessage("Weight must be greater than zero");
-        }
-        
-        if (height <= 0) {
-            throw new FaultMessage("Height must be greater than zero");
-        }
-        
+    public String displayInformation(String fullName, String icNum, String gender, double weight, double height) {
     return "<br />Full Name: " + fullName + "<br />" +
                "IC Number: " + icNum + "<br />" +
                "Gender: " + gender + "<br />" +
@@ -70,18 +50,12 @@ public class FitnessCalcWS {
     }
     
     @WebMethod(operationName = "determineBMI")
-    public String determineBMI(double weight, double height) throws FaultMessage {
-         if (weight <= 0 || height <= 0) {
-            throw new FaultMessage ("Weight and Height must be greater than zero");
-        }
+    public String determineBMI(double weight, double height) {
         double bmi = (weight / (height * height)) * 10000;
         return String.format("%.2f", bmi);
     }
     
-     public String bodyFat(double bmi, int age, String gender) throws FaultMessage {
-         if (bmi <= 0 || age <= 0) {
-            throw new FaultMessage ("BMI and Age must be greater than zero");
-        }
+     public String bodyFat(double bmi, int age, String gender) {
       double bodyFatPercentage;
       if (gender.equals("Male"))
           bodyFatPercentage = (1.20 * bmi) + (0.23 * age) - 16.2;
@@ -90,18 +64,12 @@ public class FitnessCalcWS {
       return String.format("%.2f", bodyFatPercentage);
   }
      
-     public String calorieBurnRate(int duration, double met, double weight) throws FaultMessage  {
-         if (duration <= 0 || met <= 0 || weight <= 0) {
-            throw new FaultMessage ("Duration, MET, and Weight must be greater than zero");
-        }
+     public String calorieBurnRate(int duration, double met, double weight) {
       double burnRate = (duration*met*weight)/200;
       return String.format("%.2f", burnRate);
   }
      
-     public String dailyCalorieNeed(double weight, double height, int age, String gender) throws FaultMessage {
-         if (weight <= 0 || height <= 0 || age <= 0) {
-            throw new FaultMessage ("Weight, Height, and Age must be greater than zero");
-        }
+     public String dailyCalorieNeed(double weight, double height, int age, String gender) {
       double caloryNeed;
       
       if (gender.equals("Male"))

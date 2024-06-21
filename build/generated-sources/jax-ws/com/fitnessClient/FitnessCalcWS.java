@@ -133,7 +133,7 @@ public interface FitnessCalcWS {
      * 
      * @param arg2
      * @param arg1
-     * @param fullname
+     * @param arg0
      * @return
      *     returns java.lang.String
      */
@@ -143,8 +143,8 @@ public interface FitnessCalcWS {
     @ResponseWrapper(localName = "calorieBurnRateResponse", targetNamespace = "http://fitnessCalc.com/", className = "com.fitnessClient.CalorieBurnRateResponse")
     @Action(input = "http://fitnessCalc.com/FitnessCalcWS/calorieBurnRateRequest", output = "http://fitnessCalc.com/FitnessCalcWS/calorieBurnRateResponse")
     public String calorieBurnRate(
-        @WebParam(name = "fullname", targetNamespace = "")
-        int fullname,
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         double arg1,
         @WebParam(name = "arg2", targetNamespace = "")

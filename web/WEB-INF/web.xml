@@ -24,10 +24,6 @@
         <servlet-name>DetermineCalorieNeed</servlet-name>
         <servlet-class>com.fitnessClient.DetermineCalorieNeed</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>FaultMessageClient</servlet-name>
-        <servlet-class>com.fitnessClient.FaultMessageClient</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>FitnessServlet</servlet-name>
         <url-pattern>/FitnessServlet</url-pattern>
@@ -51,10 +47,6 @@
     <servlet-mapping>
         <servlet-name>DetermineCalorieNeed</servlet-name>
         <url-pattern>/DetermineCalorieNeed</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>FaultMessageClient</servlet-name>
-        <url-pattern>/FaultMessageClient</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
