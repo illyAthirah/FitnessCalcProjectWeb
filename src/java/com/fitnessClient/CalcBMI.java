@@ -78,9 +78,16 @@ public class CalcBMI extends HttpServlet {
         return "Short description";
     }
 
-    private String determineBMI(double weight, double height) {
+    private String determineBMI(double arg0, double arg1) {
+        try
+        {
         com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
-        return port.determineBMI(weight, height);
+        return port.determineBMI(arg0, arg1);
+        } catch (Exception ex) {
+        // Log the exception for troubleshooting
+        ex.printStackTrace();  // Use appropriate logging framework in a real application
+        return "Error: Unable to calculate BMI";  // Return a default message or handle as needed
+        }
     }
 
     private String getBMIStatus(double bmi) {

@@ -25,7 +25,17 @@ public class DisplayInfo extends HttpServlet {
             String gender = request.getParameter("gender");
             double weight = Double.parseDouble(request.getParameter("weight"));
             double height = Double.parseDouble(request.getParameter("height"));
-
+            
+            if (fullName == null || fullName.isEmpty()) {
+            fullName = "Error: Full Name is empty";
+            }
+            if (icNum == null || icNum.isEmpty()) {
+                icNum = "Error: IC Number is empty";
+            }
+            if (gender == null || gender.isEmpty()) {
+                gender = "Error: Gender is empty";
+            }
+            
             out.println("<!DOCTYPE html>");
             out.println("<html lang=\"en\">");
             out.println("<head>");
@@ -54,7 +64,13 @@ public class DisplayInfo extends HttpServlet {
             out.println("<div class=\"details-box mx-auto\">"); // Added 'details-box' class for styling
             out.println("<h5>YOUR DETAILS : </h5>");
             out.println("<div class=\"details\">"); // Added 'details' class for styling
-            out.println("<p><b>Age: </b>" + determineAge(icNum) + " Y/O</p>");
+            String age = determineAge(icNum);
+            if (age.startsWith("Error")) {
+                out.println("<p><b>Age: </b> Age information unavailable</p>");
+            } else {
+                out.println("<p><b>Age: </b>" + age + " Y/O</p>");
+            }
+
             out.println("<p><b>Height: </b>" + height + " CM</p>");
             out.println("<p><b>Weight:</b> " + weight + " KG</p>");
             out.println("<p><b>Gender:</b> " + gender + "</p>");
@@ -103,7 +119,7 @@ public class DisplayInfo extends HttpServlet {
             out.println("<form id=\"calorieForm\" action=\"DetermineBurnRate\">");
             out.println("<div class=\"form-group\">");
             out.println("<label for=\"duration\">Enter the duration (minutes):</label>");
-            out.println("<input type=\"number\" class=\"form-control\" id=\"duration\" name=\"duration\" value=\"\" min=\"1\" />");
+            out.println("<input type=\"number\" class=\"form-control\" id=\"duration\" name=\"duration\" value=\"\" min=\"1\" required/>");
             out.println("</div>");
             out.println("<div class=\"form-group\">");
             out.println("<label for=\"met\">Enter your activity:</label>");
@@ -176,19 +192,26 @@ public class DisplayInfo extends HttpServlet {
         return "Short description";
     }
 
-    private String displayInformation(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2, double arg3, double arg4) {
-        com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
-        return port.displayInformation(arg0, arg1, arg2, arg3, arg4);
-    }
-
     private String determineAge(String ic) {
+    try {
         com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
         return port.determineAge(ic);
+    } catch (Exception ex) {
+        // Log the exception for troubleshooting
+        ex.printStackTrace();  // Use appropriate logging framework in a real application
+        return "Error: Unable to determine age";  // Return a default message or handle as needed
     }
-
+}
     private String determineBMI(double arg0, double arg1) {
+        try
+        {
         com.fitnessClient.FitnessCalcWS port = service.getFitnessCalcWSPort();
         return port.determineBMI(arg0, arg1);
+        } catch (Exception ex) {
+        // Log the exception for troubleshooting
+        ex.printStackTrace();  // Use appropriate logging framework in a real application
+        return "Error: Unable to calculate BMI";  // Return a default message or handle as needed
+        }
     }
 
 }
