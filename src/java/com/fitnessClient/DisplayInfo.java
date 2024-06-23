@@ -23,19 +23,36 @@ public class DisplayInfo extends HttpServlet {
             String fullName = request.getParameter("fullName");
             String icNum = request.getParameter("icNum");
             String gender = request.getParameter("gender");
+            
+            if (fullName == null || fullName.isEmpty() ||
+            icNum == null || icNum.isEmpty() ||
+            gender == null || gender.isEmpty() ||
+            request.getParameter("weight") == null || request.getParameter("weight").isEmpty() ||
+            request.getParameter("height") == null || request.getParameter("height").isEmpty()) {
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html lang=\"en\">");
+            out.println("<head>");
+            out.println("<meta charset=\"UTF-8\">");
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+            out.println("<title>Error: Missing Information</title>");
+            out.println("<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" rel=\"stylesheet\">");
+            out.println("<style>");
+            out.println("body { font-family: Arial, sans-serif; background-color: #F8EDE3; color: #333; }");
+            out.println(".container { max-width: 600px; margin: 50px auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); background-color: #D0B8A8; }");
+            out.println("h1 { font-family: Optima; color: #102C57;font-weight: bold; text-align: center; margin-top: 50px;}");
+            out.println("h4 { color: black; text-align: center; }");
+            out.println("</style>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<div class=\"container text-center\">");
+            out.println("<h1>Error: Missing Information</h1>");
+            out.println("<h4>Please fill out all fields to proceed.</h4>");
+            out.println("</div>");
+            return;
+        }
             double weight = Double.parseDouble(request.getParameter("weight"));
             double height = Double.parseDouble(request.getParameter("height"));
-            
-            if (fullName == null || fullName.isEmpty()) {
-            fullName = "Error: Full Name is empty";
-            }
-            if (icNum == null || icNum.isEmpty()) {
-                icNum = "Error: IC Number is empty";
-            }
-            if (gender == null || gender.isEmpty()) {
-                gender = "Error: Gender is empty";
-            }
-            
             out.println("<!DOCTYPE html>");
             out.println("<html lang=\"en\">");
             out.println("<head>");
