@@ -47,8 +47,19 @@ public class DisplayInfo extends HttpServlet {
             out.println("<body>");
             out.println("<div class=\"container text-center\">");
             out.println("<h1>Error: Missing Information</h1>");
-            out.println("<h4>Please fill out all fields to proceed.</h4>");
+            out.println("<h4>Please fill out all fields to proceed.</h4>");            
+            out.println("<div style=\"display: flex; justify-content: center; align-items: center;\">");
+            out.println("<button type=\"button\" class=\"btn btn-curved\" onclick=\"window.location.href='index.html'\" style=\"color: white; background-color:#85586F; width: 150px; height: 50px;\"> Exit </button>");
             out.println("</div>");
+
+                
+            out.println("<script>");
+            out.println("function goBack() {");
+            out.println("window.history.back();");
+            out.println("}");
+            out.println("</script>");
+            out.println("</body>");
+            out.println("</html>");
             return;
         }
             double weight = Double.parseDouble(request.getParameter("weight"));
@@ -102,15 +113,8 @@ public class DisplayInfo extends HttpServlet {
             out.println("</div>");
             out.println("</div>");
             out.println("<div style=\"display: flex; justify-content: center; align-items: center;\">");
-            out.println("<button type=\"button\" class=\"btn btn-curved\" onclick=\"goBack()\" style=\"color: white; background-color:#85586F; width: 150px; height: 50px;\"> Exit </button>");
+            out.println("<button type=\"button\" class=\"btn btn-curved\" onclick=\"window.location.href='index.html'\" style=\"color: white; background-color:#85586F; width: 150px; height: 50px;\"> Exit </button>");
             out.println("</div>");
-
-                
-            out.println("<script>");
-            out.println("function goBack() {");
-            out.println("window.history.back();");
-            out.println("}");
-            out.println("</script>");
             
             out.println("<form id=\"bmiForm\" action=\"CalcBMI\" method=\"post\" style=\"display:none;\">");
             out.println("<input type=\"hidden\" name=\"height\" value=\"" + height + "\" />");

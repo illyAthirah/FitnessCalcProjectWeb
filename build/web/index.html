@@ -78,7 +78,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <label for="fullName">Enter your Full Name:</label>
             <input type="text" id="fullName" name="fullName" value="" required/>
             <label for="icNum">Enter your IC:</label>
-            <input type="text" id="icNum" name="icNum" value="" minlength="12" maxlength="12" required/>
+            <input type="text" id="icNum" name="icNum" value="" minlength="12" maxlength="12" required oninput="validateICNum(this)"/>
             <label for="gender">Enter your gender:</label>
             <select id="gender" name="gender">
                 <option value="Male">Male</option>
@@ -90,5 +90,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <input type="number" id="weight" name="weight" value="" min="1" required/>
             <input type="submit" value="Submit" />
         </form>
+        <script>
+        function validateICNum(input) {
+            // Remove any non-numeric characters
+            input.value = input.value.replace(/\D/g, '');
+        }
+        </script>
+
     </body>
 </html>
